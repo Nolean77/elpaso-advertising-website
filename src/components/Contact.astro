@@ -1,0 +1,680 @@
+---
+const contactInfo = [
+  {
+    label: 'Email',
+    value: 'info@elpasoadvertisingsolutions.com',
+    href: 'mailto:info@elpasoadvertisingsolutions.com',
+    icon: 'email',
+  },
+  {
+    label: 'Phone',
+    value: '(915) 799-3187',
+    href: 'tel:+19157993187',
+    icon: 'phone',
+  },
+  {
+    label: 'Location',
+    value: 'El Paso, TX · Border Region',
+    href: null,
+    icon: 'pin',
+  },
+];
+---
+
+<section id="contact" class="contact-section">
+  <div class="section-bg" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <!-- Section header -->
+    <div class="section-header" data-reveal>
+      <span class="section-label">Get In Touch</span>
+      <h2>Let's Build Something Great</h2>
+      <p>Tell us about your business — we'll get back to you within one business day. Usually faster.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- ── Left: Info ── -->
+      <div class="contact-info-panel" data-reveal>
+
+        <!-- Contact details -->
+        <ul class="contact-details" aria-label="Contact details">
+          {contactInfo.map(item => (
+            <li>
+              {item.href ? (
+                <a href={item.href} class="detail-row" aria-label={`${item.label}: ${item.value}`}>
+                  <span class="detail-icon" aria-hidden="true">
+                    {item.icon === 'email' && (
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/>
+                      </svg>
+                    )}
+                    {item.icon === 'phone' && (
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+                      </svg>
+                    )}
+                  </span>
+                  <div class="detail-text">
+                    <span class="detail-label">{item.label}</span>
+                    <span class="detail-value">{item.value}</span>
+                  </div>
+                </a>
+              ) : (
+                <div class="detail-row no-link">
+                  <span class="detail-icon" aria-hidden="true">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </span>
+                  <div class="detail-text">
+                    <span class="detail-label">{item.label}</span>
+                    <span class="detail-value">{item.value}</span>
+                  </div>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <!-- Social -->
+        <div class="social-block">
+          <p class="social-label">Follow Us</p>
+          <div class="social-row">
+            <a href="https://www.facebook.com/profile.php?id=61551683397738" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+              <span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/elpasoadvertisingsolutions" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bilingual badge -->
+        <div class="bilingual-badge">
+          <div class="bilingual-flags">
+            <span>🇺🇸</span>
+            <span class="flag-sep">·</span>
+            <span>🇲🇽</span>
+          </div>
+          <div class="bilingual-text">
+            <strong>English & Español</strong>
+            <p>We serve clients on both sides of the border, fluently.</p>
+          </div>
+        </div>
+
+        <!-- Response time note -->
+        <div class="response-note">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Typical response time: <strong>under 4 hours</strong>
+        </div>
+
+      </div>
+
+      <!-- ── Right: Form ── -->
+      <div class="contact-form-panel" data-reveal data-reveal-delay="2">
+        <div class="form-panel-header">
+          <h3>Send Us a Message</h3>
+          <p>Fill out the form and we'll be in touch shortly.</p>
+        </div>
+
+        <form
+          id="contact-form"
+          name="contact"
+          method="POST"
+          class="contact-form"
+          novalidate
+          aria-label="Contact form"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Name <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text" id="name" name="name"
+                required placeholder="Your name"
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/>
+                </svg>
+                Email <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email" id="email" name="email"
+                required placeholder="you@email.com"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+              </svg>
+              Phone <span class="optional">(optional)</span>
+            </label>
+            <input
+              type="tel" id="phone" name="phone"
+              placeholder="(915) 000-0000"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="service">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+              Service Needed
+            </label>
+            <div class="select-wrap">
+              <select id="service" name="service">
+                <option value="">— Select a service —</option>
+                <option value="social-media">Social Media Management</option>
+                <option value="website">Website Development</option>
+                <option value="content">Content Creation</option>
+                <option value="bundle">Full Package (All Three)</option>
+                <option value="other">Other / Not Sure Yet</option>
+              </select>
+              <svg class="select-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+              </svg>
+              Message <span class="required" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="message" name="message"
+              rows="4"
+              required
+              placeholder="Tell us about your business and what you're looking to achieve online..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span class="btn-text">Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+
+          <!-- Success state -->
+          <div class="form-success" id="form-success" aria-live="polite" hidden>
+            <div class="success-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Message sent!</strong>
+              <p>We'll get back to you within one business day.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: var(--section-pad);
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(6,182,212,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 0% 50%, rgba(245,158,11,0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ── Grid ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ── Info Panel ── */
+  .contact-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* Contact list */
+  .contact-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .detail-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  }
+
+  a.detail-row:hover {
+    border-color: rgba(6,182,212,0.35);
+    background: rgba(6,182,212,0.04);
+    transform: translateX(4px);
+  }
+
+  .detail-icon {
+    width: 40px; height: 40px;
+    background: rgba(6,182,212,0.08);
+    border: 1px solid rgba(6,182,212,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .detail-text { flex: 1; min-width: 0; }
+
+  .detail-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-subtle);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .detail-value {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    word-break: break-all;
+  }
+
+  /* Social block */
+  .social-block {}
+
+  .social-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-subtle);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .social-row {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    padding: 0.7rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+
+  .social-btn:hover {
+    color: var(--accent);
+    border-color: rgba(6,182,212,0.35);
+    background: rgba(6,182,212,0.05);
+    transform: translateY(-2px);
+  }
+
+  /* Bilingual badge */
+  .bilingual-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+  }
+
+  .bilingual-flags {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-shrink: 0;
+  }
+
+  .flag-sep {
+    font-size: 0.7rem;
+    color: var(--text-subtle);
+  }
+
+  .bilingual-text strong {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .bilingual-text p {
+    font-size: 0.78rem;
+    color: var(--text-subtle);
+    line-height: 1.5;
+  }
+
+  /* Response note */
+  .response-note {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--text-subtle);
+    padding: 0 0.25rem;
+  }
+
+  .response-note svg { color: var(--emerald); flex-shrink: 0; }
+  .response-note strong { color: var(--emerald); font-weight: 700; }
+
+  /* ── Form Panel ── */
+  .contact-form-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .form-panel-header {
+    padding: 1.75rem 2.25rem 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .form-panel-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .form-panel-header p {
+    font-size: 0.825rem;
+    color: var(--text-subtle);
+  }
+
+  .contact-form {
+    padding: 2rem 2.25rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.125rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .form-group label svg { color: var(--accent); flex-shrink: 0; }
+
+  .required { color: var(--amber); }
+
+  .optional {
+    color: var(--text-subtle);
+    font-weight: 400;
+    font-size: 0.72rem;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--text-subtle);
+    font-size: 0.875rem;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(6,182,212,0.5);
+    box-shadow: 0 0 0 3px rgba(6,182,212,0.1);
+    background: rgba(6,182,212,0.03);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .select-wrap {
+    position: relative;
+  }
+
+  .select-wrap select {
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  .select-arrow {
+    position: absolute;
+    right: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-subtle);
+    pointer-events: none;
+  }
+
+  /* Submit */
+  .submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    background: var(--amber);
+    color: #07080f;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    margin-top: 0.25rem;
+    box-shadow: 0 4px 20px rgba(245,158,11,0.3);
+  }
+
+  .submit-btn:hover {
+    background: #fbbf24;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(245,158,11,0.45);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Success */
+  .form-success {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(16,185,129,0.07);
+    border: 1px solid rgba(16,185,129,0.25);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .success-icon {
+    width: 44px; height: 44px;
+    background: rgba(16,185,129,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #10b981;
+    flex-shrink: 0;
+  }
+
+  .form-success strong {
+    display: block;
+    color: #10b981;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .form-success p {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 1.5rem; }
+    .form-panel-header { padding: 1.25rem 1.5rem 1.25rem; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successMsg = document.getElementById('form-success');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const btnText = submitBtn?.querySelector('.btn-text');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Sending…';
+    }
+
+    await new Promise(r => setTimeout(r, 1000));
+
+    form.style.display = 'none';
+    if (successMsg) {
+      successMsg.hidden = false;
+    }
+  });
+</script>
