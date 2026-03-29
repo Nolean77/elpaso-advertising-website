@@ -232,7 +232,7 @@ const contactInfo = [
           </button>
 
           <!-- Success state -->
-          <div class="form-success" id="form-success" aria-live="polite" hidden>
+          <div class="form-success" id="form-success" aria-live="polite" style="display: none;">
             <div class="success-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
@@ -675,7 +675,7 @@ const contactInfo = [
 
     form.style.display = 'none';
     if (successMsg) {
-      successMsg.hidden = false;
+      successMsg.style.display = 'flex';
     }
   });
 </script>
