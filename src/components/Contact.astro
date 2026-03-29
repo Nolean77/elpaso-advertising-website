@@ -232,7 +232,7 @@ const contactInfo = [
           </button>
 
           <!-- Success state -->
-          <div class="form-success" id="form-success" aria-live="polite" style="display: none;">
+          <div class="form-success" id="form-success" aria-live="polite">
             <div class="success-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
@@ -600,7 +600,7 @@ const contactInfo = [
 
   /* Success */
   .form-success {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 1rem;
     background: rgba(16,185,129,0.07);
@@ -608,6 +608,10 @@ const contactInfo = [
     border-radius: var(--radius-sm);
     padding: 1rem 1.25rem;
     animation: fadeIn 0.4s ease;
+  }
+
+  .form-success.show {
+    display: flex;
   }
 
   .success-icon {
@@ -675,7 +679,7 @@ const contactInfo = [
 
     form.style.display = 'none';
     if (successMsg) {
-      successMsg.style.display = 'flex';
+      successMsg.classList.add('show');
     }
   });
 </script>
