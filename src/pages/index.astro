@@ -9,7 +9,7 @@ import Footer from '../components/Footer.astro';
 
 const siteUrl = 'https://elpasoadvertisingsolutions.com';
 const pageTitle = 'El Paso Advertising Solutions | Digital Marketing & Web Design';
-const pageDescription = "El Paso's go-to digital marketing agency. We handle social media, website development, and content creation for businesses across El Paso and Ciudad Juárez.";
+const pageDescription = "A bilingual digital marketing agency serving businesses across the US, Mexico, and Latin America. We handle social media, website development, and content creation.";
 const ogImage = `${siteUrl}/og-image.jpg`;
 ---
 
@@ -23,7 +23,7 @@ const ogImage = `${siteUrl}/og-image.jpg`;
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="El Paso Advertising Solutions" />
-    <meta name="keywords" content="El Paso advertising agency, digital marketing El Paso TX, social media management El Paso, web design El Paso, content creation, Border Region marketing, Ciudad Juarez marketing" />
+    <meta name="keywords" content="El Paso advertising agency, digital marketing El Paso TX, social media management, web design, content creation, Latin America marketing, bilingual marketing agency, Mexico marketing, Austin advertising" />
 
     <!-- Canonical -->
     <link rel="canonical" href={Astro.url.href} />
@@ -68,7 +68,7 @@ const ogImage = `${siteUrl}/og-image.jpg`;
       "name": "El Paso Advertising Solutions",
       "url": siteUrl,
       "logo": `${siteUrl}/favicon.svg`,
-      "description": "El Paso's digital marketing agency specializing in social media management, website development, and content creation for businesses across the US-Mexico border region.",
+      "description": "A bilingual digital marketing agency specializing in social media management, website development, and content creation for businesses across the US, Mexico, and Latin America.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "El Paso",
@@ -82,7 +82,13 @@ const ogImage = `${siteUrl}/og-image.jpg`;
       },
       "areaServed": [
         { "@type": "City", "name": "El Paso" },
-        { "@type": "City", "name": "Ciudad Juárez" }
+        { "@type": "City", "name": "Austin" },
+        { "@type": "City", "name": "Ciudad Juárez" },
+        { "@type": "City", "name": "Mexico City" },
+        { "@type": "Country", "name": "Peru" },
+        { "@type": "Country", "name": "Bolivia" },
+        { "@type": "Country", "name": "Paraguay" },
+        { "@type": "Country", "name": "Argentina" }
       ],
       "contactPoint": {
         "@type": "ContactPoint",
