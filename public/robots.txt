@@ -1,0 +1,4 @@
+# TODO: Update sitemap URL to production domain before launch
+User-agent: *
+Allow: /
+Sitemap: https://elpasoadvertisingsolutions.com/sitemap-index.xml

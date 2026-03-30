@@ -1,0 +1,282 @@
+---
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Team from '../components/Team.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const siteUrl = 'https://elpasoadvertisingsolutions.com';
+const pageTitle = 'El Paso Advertising Solutions | Digital Marketing & Web Design';
+const pageDescription = "El Paso's go-to digital marketing agency. We handle social media, website development, and content creation for businesses across El Paso and Ciudad Juárez.";
+const ogImage = `${siteUrl}/og-image.jpg`;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="El Paso Advertising Solutions" />
+    <meta name="keywords" content="El Paso advertising agency, digital marketing El Paso TX, social media management El Paso, web design El Paso, content creation, Border Region marketing, Ciudad Juarez marketing" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:site_name" content="El Paso Advertising Solutions" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="El Paso Advertising Solutions — Digital Marketing, Web Design & Content Creation" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicons & PWA -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- TODO: Replace /public/og-image.jpg with a real 1200x630px branded image before going live -->
+
+    <!-- Google Fonts: Bricolage Grotesque + Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- TODO: Update all schema URLs to production domain -->
+    <!-- Schema.org: ProfessionalService (LocalBusiness) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#organization`,
+      "name": "El Paso Advertising Solutions",
+      "url": siteUrl,
+      "logo": `${siteUrl}/favicon.svg`,
+      "description": "El Paso's digital marketing agency specializing in social media management, website development, and content creation for businesses across the US-Mexico border region.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "El Paso",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.7619,
+        "longitude": -106.4850
+      },
+      "areaServed": [
+        { "@type": "City", "name": "El Paso" },
+        { "@type": "City", "name": "Ciudad Juárez" }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-656-388-2009",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Spanish"]
+      },
+      "sameAs": [
+        "https://www.facebook.com/ElPasoAdsSolutions",
+        "https://www.instagram.com/elpasoadssolutions"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Marketing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Creation" } }
+        ]
+      }
+    })} />
+
+    <style is:global>
+      :root {
+        /* Backgrounds */
+        --bg:           #07080f;
+        --bg-card:      #0d0f1e;
+        --bg-elevated:  #12152a;
+
+        /* Borders */
+        --border:       rgba(255,255,255,0.07);
+        --border-hover: rgba(6,182,212,0.5);
+
+        /* Text */
+        --text:         #e2e8f0;
+        --text-muted:   #94a3b8;
+        --text-subtle:  #566070;
+
+        /* Accents */
+        --accent:       #06b6d4;
+        --accent-dark:  #0891b2;
+        --accent-glow:  rgba(6,182,212,0.18);
+        --amber:        #f59e0b;
+        --amber-dark:   #d97706;
+        --amber-glow:   rgba(245,158,11,0.15);
+        --emerald:      #10b981;
+        --emerald-glow: rgba(16,185,129,0.15);
+
+        /* Fonts */
+        --font-display: 'Bricolage Grotesque', sans-serif;
+        --font-body:    'Plus Jakarta Sans', sans-serif;
+
+        /* Radii */
+        --radius-sm:    10px;
+        --radius:       16px;
+        --radius-lg:    24px;
+
+        /* Layout */
+        --nav-height:   72px;
+        --max-w:        1200px;
+        --section-pad:  6rem 1.5rem;
+      }
+
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: radial-gradient(ellipse at top, rgba(6,182,212,0.03) 0%, var(--bg) 70%);
+        color: var(--text);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5 {
+        font-family: var(--font-display);
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+      }
+
+      img { max-width: 100%; height: auto; display: block; }
+      a { color: inherit; text-decoration: none; }
+      button { font-family: var(--font-body); cursor: pointer; }
+
+      section { scroll-margin-top: var(--nav-height); }
+
+      /* ── Shared Section Label ── */
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(6,182,212,0.08);
+        border: 1px solid rgba(6,182,212,0.22);
+        color: var(--accent);
+        padding: 0.35rem 0.9rem;
+        border-radius: 50px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+      }
+
+      .section-label::before {
+        content: '';
+        display: block;
+        width: 5px;
+        height: 5px;
+        background: var(--accent);
+        border-radius: 50%;
+        box-shadow: 0 0 6px var(--accent);
+      }
+
+      /* ── Shared Section Header ── */
+      .section-header {
+        text-align: center;
+        margin-bottom: 4.5rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        color: #fff;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .section-header p {
+        color: var(--text-muted);
+        max-width: 520px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.75;
+      }
+
+      /* ── Reveal Animation ── */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+                    transform 0.65s cubic-bezier(0.22,1,0.36,1);
+      }
+
+      [data-reveal].visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      [data-reveal-delay="1"] { transition-delay: 0.1s; }
+      [data-reveal-delay="2"] { transition-delay: 0.2s; }
+      [data-reveal-delay="3"] { transition-delay: 0.3s; }
+      [data-reveal-delay="4"] { transition-delay: 0.4s; }
+      [data-reveal-delay="5"] { transition-delay: 0.5s; }
+
+      @media (max-width: 640px) {
+        :root { --section-pad: 4.5rem 1.25rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <Hero />
+      <Services />
+      <Portfolio />
+      <Team />
+      <Contact />
+    </main>
+    <Footer />
+
+    <!-- Global scroll reveal -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>

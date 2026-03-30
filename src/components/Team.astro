@@ -1,0 +1,473 @@
+---
+import { Image } from 'astro:assets';
+import teamPhoto from '../assets/team-photo.png';
+
+const team = [
+  {
+    name: 'Nolean Francisco',
+    role: 'Web Developer & AI Specialist',
+    bio: `Nolean builds the digital infrastructure behind every client's online presence. From custom websites to AI-powered automation, he brings technical precision and forward-thinking solutions to every project.`,
+    strengths: ['Web Development', 'AI & Automation', 'UI/UX Design', 'Performance'],
+    color: '#06b6d4',
+    glow: 'rgba(6,182,212,0.18)',
+    side: 'left',
+  },
+  {
+    name: 'Carlos Terrazas',
+    role: 'Marketing Director',
+    bio: `Carlos drives strategy, client relationships, and campaign execution. His deep knowledge of the El Paso market means every campaign is built for the Border Region's unique audience — bilingual, bi-cultural, and highly engaged.`,
+    strengths: ['Brand Strategy', 'Client Relations', 'Campaign Planning', 'Paid Media'],
+    color: '#f59e0b',
+    glow: 'rgba(245,158,11,0.18)',
+    side: 'right',
+  },
+];
+---
+
+<section id="team" class="team-section">
+  <div class="section-bg" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <!-- Section header -->
+    <div class="section-header" data-reveal>
+      <span class="section-label">Our Team</span>
+      <h2>Two Minds, One Mission</h2>
+      <p>A tight-knit team with the combined skills of a full-service agency — and the personal attention of a local partner.</p>
+    </div>
+
+    <!-- ── Team Photo + Bios layout ── -->
+    <div class="team-layout" data-reveal>
+
+      <!-- Photo Column -->
+      <div class="team-photo-col">
+        <div class="photo-frame">
+          <!-- Decorative elements -->
+          <div class="frame-corner frame-tl" aria-hidden="true"></div>
+          <div class="frame-corner frame-br" aria-hidden="true"></div>
+
+          <Image
+            src={teamPhoto}
+            alt="Nolean Francisco and Carlos Terrazas, co-founders of El Paso Advertising Solutions"
+            width={480}
+            height={600}
+            loading="lazy"
+            format="webp"
+            class="team-img"
+          />
+
+          <!-- Name labels -->
+          <div class="name-tag name-tag-left">
+            <span class="tag-dot" style="background: #06b6d4;"></span>
+            Nolean
+          </div>
+          <div class="name-tag name-tag-right">
+            Carlos
+            <span class="tag-dot" style="background: #f59e0b;"></span>
+          </div>
+        </div>
+
+        <!-- Tagline below photo -->
+        <div class="photo-tagline">
+          <div class="tagline-line"></div>
+          <p>El Paso, Texas · Est. 2023</p>
+          <div class="tagline-line"></div>
+        </div>
+      </div>
+
+      <!-- Bios Column -->
+      <div class="team-bios-col">
+        {team.map((member, i) => (
+          <article
+            class="bio-card"
+            style={`--mc: ${member.color}; --mg: ${member.glow};`}
+            data-reveal
+            data-reveal-delay={String(i + 1)}
+          >
+            <!-- Color accent strip -->
+            <div class="bio-accent" aria-hidden="true"></div>
+
+            <!-- Header -->
+            <div class="bio-header">
+              <div class="bio-avatar">
+                <span>{member.name.charAt(0)}</span>
+              </div>
+              <div class="bio-title-block">
+                <h3 class="bio-name">{member.name}</h3>
+                <p class="bio-role">{member.role}</p>
+              </div>
+            </div>
+
+            <!-- Bio text -->
+            <p class="bio-text">{member.bio}</p>
+
+            <!-- Strengths -->
+            <div class="bio-strengths" aria-label={`${member.name}'s specialties`}>
+              {member.strengths.map(s => (
+                <span class="strength-pill">{s}</span>
+              ))}
+            </div>
+          </article>
+        ))}
+
+        <!-- Together callout -->
+        <div class="together-callout" data-reveal data-reveal-delay="3">
+          <div class="callout-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <p>
+            Together, Carlos and Nolean offer something rare: the <strong>creative strategy</strong> of a marketing director <em>and</em> the <strong>technical depth</strong> of a developer — under one roof, speaking your language.
+          </p>
+          <a href="#contact" class="callout-cta">
+            Work With Us
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-section {
+    padding: var(--section-pad);
+    background: #09091a;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 15% 50%, rgba(6,182,212,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 85% 50%, rgba(245,158,11,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ── Main layout ── */
+  .team-layout {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ── Photo Column ── */
+  .team-photo-col {
+    position: relative;
+  }
+
+  .photo-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: visible;
+  }
+
+  /* Corner decorations */
+  .frame-corner {
+    position: absolute;
+    width: 32px; height: 32px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.5;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .frame-tl {
+    top: -8px; left: -8px;
+    border-width: 2px 0 0 2px;
+    border-radius: 4px 0 0 0;
+  }
+
+  .frame-br {
+    bottom: -8px; right: -8px;
+    border-width: 0 2px 2px 0;
+    border-radius: 0 0 4px 0;
+    border-color: var(--amber);
+  }
+
+  .team-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow:
+      0 40px 80px rgba(0,0,0,0.5),
+      0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  /* Name tags */
+  .name-tag {
+    position: absolute;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(7,8,15,0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 0.35rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.03em;
+  }
+
+  .name-tag-left  { left: 16px; }
+  .name-tag-right { right: 16px; }
+
+  .tag-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px currentColor;
+  }
+
+  /* Tagline below photo */
+  .photo-tagline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .tagline-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .photo-tagline p {
+    font-size: 0.72rem;
+    color: var(--text-subtle);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── Bios Column ── */
+  .team-bios-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* ── Bio Card ── */
+  .bio-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+  }
+
+  .bio-card:hover {
+    border-color: color-mix(in srgb, var(--mc) 40%, transparent);
+    transform: translateX(6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+  }
+
+  /* Left accent bar */
+  .bio-accent {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--mc), color-mix(in srgb, var(--mc) 30%, transparent));
+    border-radius: 0 2px 2px 0;
+    opacity: 0.7;
+  }
+
+  /* Header */
+  .bio-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+  }
+
+  .bio-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--mg);
+    border: 2px solid var(--mc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--mc);
+    flex-shrink: 0;
+    box-shadow: 0 0 20px var(--mg);
+  }
+
+  .bio-title-block {
+    flex: 1;
+  }
+
+  .bio-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .bio-role {
+    color: var(--mc);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Bio text */
+  .bio-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.78;
+    margin-bottom: 1.25rem;
+    padding-left: 0.5rem;
+  }
+
+  /* Strengths */
+  .bio-strengths {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding-left: 0.5rem;
+  }
+
+  .strength-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--mc);
+    background: var(--mg);
+    border: 1px solid color-mix(in srgb, var(--mc) 25%, transparent);
+    padding: 0.28rem 0.7rem;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Together Callout ── */
+  .together-callout {
+    background: linear-gradient(135deg,
+      rgba(6,182,212,0.06) 0%,
+      rgba(245,158,11,0.06) 100%
+    );
+    border: 1px solid rgba(6,182,212,0.15);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .together-callout::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--amber), transparent);
+  }
+
+  .callout-icon {
+    width: 40px; height: 40px;
+    background: rgba(6,182,212,0.1);
+    border: 1px solid rgba(6,182,212,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .together-callout p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.78;
+    margin-bottom: 1.25rem;
+  }
+
+  .together-callout p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .together-callout p em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .callout-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--amber);
+    color: #07080f;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.65rem 1.35rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .callout-cta:hover {
+    background: #fbbf24;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(245,158,11,0.4);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .team-layout {
+      grid-template-columns: 360px 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .team-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .team-photo-col {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .bio-card:hover {
+      transform: translateY(-4px);
+    }
+  }
+</style>
