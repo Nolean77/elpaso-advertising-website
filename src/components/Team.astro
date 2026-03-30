@@ -1,4 +1,7 @@
----
+gy through ---
+import { Image } from 'astro:assets';
+import teamPhoto from '../assets/team-photo.png';
+
 const team = [
   {
     name: 'Nolean Francisco',
@@ -12,7 +15,7 @@ const team = [
   {
     name: 'Carlos Terrazas',
     role: 'Marketing Director',
-    bio: `Carlos drives strategy, client relationships, and campaign execution. His deep knowledge of the El Paso market means every campaign is built for the Border Region's unique audience — bilingual, bi-cultural, and highly engaged.`,
+    bio: `Carlos drives strategy, client relationships, and campaign execution. With a sharp eye for what moves people and a talent for building lasting connections, he crafts campaigns that resonate across cultures — from Austin to Mexico City, and throughout Latin America.`,
     strengths: ['Brand Strategy', 'Client Relations', 'Campaign Planning', 'Paid Media'],
     color: '#f59e0b',
     glow: 'rgba(245,158,11,0.18)',
@@ -43,12 +46,13 @@ const team = [
           <div class="frame-corner frame-tl" aria-hidden="true"></div>
           <div class="frame-corner frame-br" aria-hidden="true"></div>
 
-          <img
-            src="/team-photo.png"
+          <Image
+            src={teamPhoto}
             alt="Nolean Francisco and Carlos Terrazas, co-founders of El Paso Advertising Solutions"
-            width="480"
-            height="600"
+            width={480}
+            height={600}
             loading="lazy"
+            format="webp"
             class="team-img"
           />
 
@@ -66,7 +70,7 @@ const team = [
         <!-- Tagline below photo -->
         <div class="photo-tagline">
           <div class="tagline-line"></div>
-          <p>El Paso, Texas · Est. 2023</p>
+          <p>Est. 2020 · US, Mexico &amp; Latin America</p>
           <div class="tagline-line"></div>
         </div>
       </div>

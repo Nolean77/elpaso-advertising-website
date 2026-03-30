@@ -4,9 +4,10 @@ const clients = [
     name: 'Solafire',
     url: 'https://www.solafire.org',
     domain: 'solafire.org',
+    fbUrl: 'https://www.facebook.com/contacto.solafire',
     industry: 'Medical · Pulmonology',
-    description: 'Bilingual digital presence for a pulmonology practice serving both sides of the Border Region.',
-    services: ['Social Media', 'Web Design'],
+    description: 'Full branding, social media, and web development for a pulmonology organization running webinars and congresses across Latin America.',
+    services: ['Branding', 'Social Media', 'Web Dev'],
     color: '#10b981',
     initials: 'SF',
   },
@@ -14,8 +15,9 @@ const clients = [
     name: 'El Pollo Rico',
     url: 'https://www.pollosricos.com',
     domain: 'pollosricos.com',
+    fbUrl: 'https://www.facebook.com/PolloRicoTx',
     industry: 'Restaurant',
-    description: 'Vibrant social content and brand strategy for a beloved El Paso restaurant institution.',
+    description: 'Vibrant social content and brand strategy for a beloved Austin restaurant with multiple locations.',
     services: ['Social Media', 'Content'],
     color: '#f59e0b',
     initials: 'PR',
@@ -24,6 +26,7 @@ const clients = [
     name: 'Pulmonary Health Center',
     url: 'https://topdoctors.mx/Centro/clinica-pulmonary-health-center/',
     domain: 'topdoctors.mx',
+    fbUrl: 'https://www.facebook.com/pulmonaryhealthcenter',
     industry: 'Healthcare',
     description: 'Cross-border healthcare marketing driving patient awareness and building lasting trust.',
     services: ['Social Media', 'Content'],
@@ -34,6 +37,7 @@ const clients = [
     name: 'EP Roadrunner RV',
     url: 'https://elpasoroadrunnerrv.com',
     domain: 'elpasoroadrunnerrv.com',
+    fbUrl: 'https://www.facebook.com/profile.php?id=61573168067817',
     industry: 'RV Park · Hospitality',
     description: 'Online brand building and web presence for a premier El Paso RV resort destination.',
     services: ['Web Design', 'Social Media'],
@@ -44,8 +48,9 @@ const clients = [
     name: 'Future Strike Bowling',
     url: null,
     domain: null,
+    fbUrl: 'https://www.facebook.com/profile.php?id=100095128997724',
     industry: 'Pro Shop · Retail',
-    description: 'Retail brand launch and digital strategy for an El Paso bowling pro shop from the ground up.',
+    description: 'Retail brand launch and digital strategy for a bowling pro shop that sells and ships to all of Mexico.',
     services: ['Branding', 'Social Media'],
     color: '#ec4899',
     initials: 'FS',
@@ -54,12 +59,24 @@ const clients = [
     name: 'Top RV Parts',
     url: 'https://shop.toprvparts.com',
     domain: 'toprvparts.com',
+    fbUrl: 'https://www.facebook.com/TopRVParts',
     industry: 'E-commerce · Parts',
     description: 'E-commerce growth strategy and online store development for a national RV parts retailer.',
     services: ['Web Dev', 'E-commerce'],
     color: '#06b6d4',
     initials: 'TR',
   },
+ {
+ name: 'Paws in Heaven',
+ url: 'https://pawsinheaven.com',
+ domain: 'pawsinheaven.com',
+ fbUrl: 'https://www.facebook.com/PawsinheavenELP',
+ industry: 'Pet Memorial · Cremation',
+ description: 'Compassionate web presence and digital visibility support for a pet memorial and cremation service helping families honor beloved companions.',
+ services: ['Web Design', 'Brand Presence'],
+ color: '#f97316',
+ initials: 'PH',
+ },
 ];
 ---
 
@@ -70,7 +87,7 @@ const clients = [
     <div class="section-header" data-reveal>
       <span class="section-label">Our Work</span>
       <h2>Trusted by Local Businesses</h2>
-      <p>Proud to partner with businesses across El Paso and the Border Region — from healthcare to hospitality.</p>
+      <p>Proud to partner with businesses across the US, Mexico, and Latin America — from healthcare to hospitality.</p>
     </div>
 
     <div class="clients-grid">
@@ -89,8 +106,8 @@ const clients = [
                 <img
                   src={`https://logo.clearbit.com/${client.domain}`}
                   alt={`${client.name} logo`}
-                  width="32"
-                  height="32"
+                  width="48"
+                  height="48"
                   loading="lazy"
                   onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
                 />
@@ -103,23 +120,36 @@ const clients = [
               </span>
             </div>
 
-            <!-- External link or coming soon -->
-            {client.url ? (
+            <!-- Links: Facebook + website -->
+            <div class="card-links">
               <a
-                href={client.url}
+                href={client.fbUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="ext-link"
-                aria-label={`Visit ${client.name} website`}
+                class="ext-link fb-link"
+                aria-label={`View ${client.name} on Facebook`}
               >
-                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M5.5 2.5H2.5a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1v-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                  <path d="M8.5 2.5h3v3M11.5 2.5L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
                 </svg>
               </a>
-            ) : (
-              <span class="coming-soon">Coming Soon</span>
-            )}
+              {client.url ? (
+                <a
+                  href={client.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ext-link"
+                  aria-label={`Visit ${client.name} website`}
+                >
+                  <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M5.5 2.5H2.5a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1v-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M8.5 2.5h3v3M11.5 2.5L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              ) : (
+                <span class="coming-soon">Coming Soon</span>
+              )}
+            </div>
           </div>
 
           <!-- Body -->
@@ -260,6 +290,13 @@ const clients = [
     height: 100%;
   }
 
+  /* ── Card links group ── */
+  .card-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
   /* ── External link ── */
   .ext-link {
     display: flex;
@@ -278,6 +315,18 @@ const clients = [
     color: var(--c);
     background: var(--cg);
     border-color: color-mix(in srgb, var(--c) 35%, transparent);
+  }
+
+  .fb-link {
+    color: #1877f2;
+    border-color: rgba(24,119,242,0.25);
+    background: rgba(24,119,242,0.06);
+  }
+
+  .fb-link:hover {
+    color: #fff;
+    background: #1877f2;
+    border-color: #1877f2;
   }
 
   /* Coming soon */

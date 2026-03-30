@@ -1,9 +1,12 @@
----
+ (---
+import { Image } from 'astro:assets';
+import teamPhoto from '../assets/team-photo.png';
+
 const stats = [
-  { value: '6+',   label: 'Clients Served'     },
-  { value: '3',    label: 'Core Services'      },
-  { value: '100%', label: 'Border Region Focus' },
-  { value: '2',    label: 'Industries Served'  },
+  { value: '3+',         label: 'Countries Served'     },
+  { value: '3',          label: 'Core Services Offered' },
+  { value: 'Bi-lingual', label: 'English & Español'    },
+  { value: 'Est. 2020',  label: 'Founded'               },
 ];
 ---
 
@@ -24,7 +27,7 @@ const stats = [
       <!-- Badge -->
       <div class="hero-badge">
         <span class="badge-dot" aria-hidden="true"></span>
-        Digital Solutions · El Paso & Border Region
+        Digital Solutions · Americas & Beyond
       </div>
 
       <!-- Headline -->
@@ -36,7 +39,7 @@ const stats = [
 
       <!-- Subheading -->
       <p class="hero-sub">
-        El Paso's go-to digital marketing duo — we handle your social media, build your website, and create content that connects with your customers across the Borderland.
+        A bilingual digital marketing team — we handle your social media, build your website, and create content that connects with your customers across the US, Mexico, and Latin America.
       </p>
 
       <!-- CTAs -->
@@ -57,7 +60,7 @@ const stats = [
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
-        Trusted by local businesses in El Paso &amp; Ciudad Juárez
+        Trusted by businesses across the US, Mexico &amp; Latin America
       </p>
 
       <!-- Stats -->
@@ -80,12 +83,13 @@ const stats = [
       <!-- Photo card (polaroid style) -->
       <div class="photo-card">
         <div class="photo-wrap">
-          <img
-            src="/team-photo.png"
+          <Image
+            src={teamPhoto}
             alt="Nolean Francisco and Carlos Terrazas, founders of El Paso Advertising Solutions"
-            width="480"
-            height="600"
+            width={480}
+            height={600}
             loading="eager"
+            format="webp"
           />
         </div>
         <!-- Accent strip at bottom -->
@@ -625,11 +629,12 @@ const stats = [
 
     .hero-copy {
       align-items: center;
-      order: 2;
+      order: 1;
     }
 
+    /* Hide the photo on mobile — it appears again in the Team section */
     .hero-visual {
-      order: 1;
+      display: none;
     }
 
     .hero-sub {

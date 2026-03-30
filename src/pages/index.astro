@@ -6,55 +6,70 @@ import Portfolio from '../components/Portfolio.astro';
 import Team from '../components/Team.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
+
+const siteUrl = 'https://elpasoadvertisingsolutions.com';
+const pageTitle = 'El Paso Advertising Solutions | Digital Marketing & Web Design';
+const pageDescription = "A bilingual digital marketing agency serving businesses across the US, Mexico, and Latin America. We handle social media, website development, and content creation.";
+const ogImage = `${siteUrl}/og-image.jpg`;
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href="https://elpasoadvertisingsolutions.com" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO -->
-    <title>El Paso Advertising Solutions | Digital Marketing, Web Design & Content Creation</title>
-    <meta name="description" content="El Paso's digital marketing agency for the Border Region. We specialize in social media management, custom website development, and content creation that converts. Call +52 656 388 2009." />
-    <meta name="keywords" content="El Paso advertising agency, digital marketing El Paso TX, social media management El Paso, web design El Paso, content creation, Border Region marketing, Ciudad Juarez marketing" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="El Paso Advertising Solutions" />
+    <meta name="keywords" content="El Paso advertising agency, digital marketing El Paso TX, social media management, web design, content creation, Latin America marketing, bilingual marketing agency, Mexico marketing, Austin advertising" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Canonical -->
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://elpasoadvertisingsolutions.com" />
-    <meta property="og:title" content="El Paso Advertising Solutions | Digital Marketing & Web Design" />
-    <meta property="og:description" content="El Paso's digital marketing agency specializing in social media management, web development, and content creation for businesses across the Border Region." />
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/06b6d4/ffffff?text=El+Paso+Advertising+Solutions" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={Astro.url.href} />
     <meta property="og:site_name" content="El Paso Advertising Solutions" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="El Paso Advertising Solutions — Digital Marketing, Web Design & Content Creation" />
+    <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="El Paso Advertising Solutions" />
-    <meta name="twitter:description" content="Digital marketing, web development & content creation for the Border Region." />
-    <meta name="twitter:image" content="https://via.placeholder.com/1200x630/06b6d4/ffffff?text=El+Paso+Advertising+Solutions" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
 
-    <!-- Favicon -->
+    <!-- Favicons & PWA -->
+    <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- TODO: Replace /public/og-image.jpg with a real 1200x630px branded image before going live -->
 
     <!-- Google Fonts: Bricolage Grotesque + Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
-    <!-- Schema.org: LocalBusiness -->
-    <script type="application/ld+json">
-    {
+    <!-- TODO: Update all schema URLs to production domain -->
+    <!-- Schema.org: ProfessionalService (LocalBusiness) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#organization`,
       "name": "El Paso Advertising Solutions",
-      "description": "Digital marketing agency specializing in social media management, website development, and content creation for businesses in El Paso, TX and the Border Region.",
-      "url": "https://elpasoadvertisingsolutions.com",
-      "telephone": "+526563882009",
-      "email": "carlosterrazask@gmail.com",
+      "url": siteUrl,
+      "logo": `${siteUrl}/favicon.svg`,
+      "description": "A bilingual digital marketing agency specializing in social media management, website development, and content creation for businesses across the US, Mexico, and Latin America.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "El Paso",
@@ -68,7 +83,23 @@ import Footer from '../components/Footer.astro';
       },
       "areaServed": [
         { "@type": "City", "name": "El Paso" },
-        { "@type": "City", "name": "Ciudad Juárez" }
+        { "@type": "City", "name": "Austin" },
+        { "@type": "City", "name": "Ciudad Juárez" },
+        { "@type": "City", "name": "Mexico City" },
+        { "@type": "Country", "name": "Peru" },
+        { "@type": "Country", "name": "Bolivia" },
+        { "@type": "Country", "name": "Paraguay" },
+        { "@type": "Country", "name": "Argentina" }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-656-388-2009",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Spanish"]
+      },
+      "sameAs": [
+        "https://www.facebook.com/ElPasoAdsSolutions",
+        "https://www.instagram.com/elpasoadssolutions"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -79,8 +110,7 @@ import Footer from '../components/Footer.astro';
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Creation" } }
         ]
       }
-    }
-    </script>
+    })} />
 
     <style is:global>
       :root {
@@ -219,25 +249,21 @@ import Footer from '../components/Footer.astro';
 
       [data-reveal-delay="1"] { transition-delay: 0.1s; }
       [data-reveal-delay="2"] { transition-delay: 0.2s; }
-      [data-reveal-delay="3"] { transition-delay: 0.3s; }
-      [data-reveal-delay="4"] { transition-delay: 0.4s; }
-      [data-reveal-delay="5"] { transition-delay: 0.5s; }
-
-      @media (max-width: 640px) {
-        :root { --section-pad: 4.5rem 1.25rem; }
-      }
-    </style>
-  </head>
-  <body>
-    <Nav />
-    <main>
-      <Hero />
-      <Services />
-      <Portfolio />
-      <Team />
-      <Contact />
-    </main>
-    <Footer />
+ [data-reveal-delay="3"] { transition-delay:0.3s; }
+ [data-reveal-delay="4"] { transition-delay:0.4s; }
+ </style>
+ </head>
+ <body>
+ <Nav />
+ <main>
+ <Hero />
+ <Services />
+ <Portfolio />
+ <Team />
+ <Contact />
+ </main>
+ <Footer />
+ <WhatsAppFab />
 
     <!-- Global scroll reveal -->
     <script>
