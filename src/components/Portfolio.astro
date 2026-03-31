@@ -166,7 +166,7 @@ const portfolioItems = [
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
     z-index: 1;
     pointer-events: none;
   }
@@ -181,7 +181,7 @@ const portfolioItems = [
 
   .portfolio-card:hover .card-image img {
     transform: scale(1.08);
-    filter: brightness(0.35);
+    filter: brightness(0.25);
   }
 
   .card-overlay {
@@ -190,7 +190,7 @@ const portfolioItems = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(7,8,15,0.75);
+    background: rgba(0,0,0,0.6);
     opacity: 0;
     transition: opacity 0.4s;
     z-index: 2;
@@ -217,8 +217,8 @@ const portfolioItems = [
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--card-color);
-    background: color-mix(in srgb, var(--card-color) 15%, transparent);
+    color: #fff;
+    background: rgba(255,255,255,0.15);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     margin-bottom: 0.75rem;
@@ -231,13 +231,14 @@ const portfolioItems = [
     color: #fff;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
 
   .overlay-cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--card-color);
+    color: #fff;
     font-size: 0.85rem;
     font-weight: 700;
     text-decoration: none;
