@@ -654,6 +654,19 @@
       cursor: default;
     }
     .portfolio-card:hover { background: #161630; }
+    .portfolio-preview {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .portfolio-card:hover .portfolio-preview {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
     .portfolio-card-top {
       display: flex;
       align-items: center;
@@ -845,6 +858,18 @@
       transition: transform 0.4s ease;
     }
     .team-card:hover::before { transform: scaleX(1); }
+    .team-photo-wrap {
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .team-photo-wrap img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
     .team-avatar {
       width: 64px; height: 64px;
       border-radius: 16px;
@@ -1431,6 +1456,7 @@
       </div>
       <div class="portfolio-grid">
         <div class="portfolio-card reveal">
+          <img src="/Photos/Solafire Photo Website.jpg" alt="Solafire Website Preview" class="portfolio-preview" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <img src="https://logo.clearbit.com/solafire.org" alt="Solafire" onerror="this.style.display='none';this.parentElement.textContent='SF'" />
@@ -1446,6 +1472,7 @@
           <p class="portfolio-desc">Bilingual digital presence for a pulmonology practice serving patients on both sides of the US-Mexico border.</p>
         </div>
         <div class="portfolio-card reveal">
+          <img src="/Photos/El Pollo Rico Photo Website.png" alt="El Pollo Rico Website Preview" class="portfolio-preview" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <img src="https://logo.clearbit.com/pollosricos.com" alt="El Pollo Rico" onerror="this.style.display='none';this.parentElement.textContent='PR'" />
@@ -1461,6 +1488,7 @@
           <p class="portfolio-desc">Vibrant social content and brand strategy for a beloved El Paso restaurant institution with a loyal local following.</p>
         </div>
         <div class="portfolio-card reveal">
+          <img src="/Photos/Pulmonary Health Center Photo Website.png" alt="Pulmonary Health Center Website Preview" class="portfolio-preview" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <img src="https://logo.clearbit.com/topdoctors.mx" alt="Pulmonary Health Center" onerror="this.style.display='none';this.parentElement.textContent='PH'" />
@@ -1476,6 +1504,7 @@
           <p class="portfolio-desc">Cross-border healthcare marketing driving patient awareness and building lasting trust across two markets.</p>
         </div>
         <div class="portfolio-card reveal">
+          <img src="/Photos/RV Park photo website.jpg" alt="EP Roadrunner RV Park Website Preview" class="portfolio-preview" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <img src="https://logo.clearbit.com/elpasoroadrunnerrv.com" alt="EP Roadrunner RV" onerror="this.style.display='none';this.parentElement.textContent='RR'" />
@@ -1490,21 +1519,22 @@
           <h3 class="portfolio-name">EP Roadrunner RV</h3>
           <p class="portfolio-desc">Online brand building for a premier RV resort destination attracting travelers from across North America.</p>
         </div>
-        <div class="portfolio-card coming-soon reveal">
+        <div class="portfolio-card reveal">
+          <img src="/Photos/Future Strike Photo Website.jpg" alt="Future Strike Bowling Website Preview" class="portfolio-preview" loading="lazy" />
           <div class="portfolio-card-top">
-            <div class="portfolio-logo" style="background:rgba(255,101,132,0.1);border-color:rgba(255,101,132,0.2);color:var(--accent-2);">FS</div>
+            <div class="portfolio-logo" style="background:rgba(108,99,255,0.1);border-color:rgba(108,99,255,0.2);color:var(--accent);">FS</div>
             <div class="portfolio-tags">
-              <span class="portfolio-tag" style="color:var(--accent-2);background:rgba(255,101,132,0.1);border-color:rgba(255,101,132,0.2);">Branding</span>
-              <span class="portfolio-tag" style="color:var(--accent-2);background:rgba(255,101,132,0.1);border-color:rgba(255,101,132,0.2);">Social Media</span>
+              <span class="portfolio-tag">Branding</span>
+              <span class="portfolio-tag">Social Media</span>
             </div>
           </div>
           <div class="portfolio-region">🇺🇸 USA</div>
           <div class="portfolio-industry">Pro Shop · Retail</div>
           <h3 class="portfolio-name">Future Strike Bowling</h3>
           <p class="portfolio-desc">Retail brand launch and digital strategy for an El Paso bowling pro shop from the ground up.</p>
-          <span class="coming-soon-badge">Coming Soon</span>
         </div>
         <div class="portfolio-card reveal">
+          <img src="/Photos/Top RV Parts Photo Website.jpg" alt="Top RV Parts Website Preview" class="portfolio-preview" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <img src="https://logo.clearbit.com/toprvparts.com" alt="Top RV Parts" onerror="this.style.display='none';this.parentElement.textContent='TR'" />
@@ -1520,6 +1550,7 @@
           <p class="portfolio-desc">E-commerce growth strategy and online store development for a national RV parts retailer serving North America.</p>
         </div>
         <div class="portfolio-card reveal">
+          <img src="/Photos/paws in heaven website photo.jpg" alt="Paws in Heaven Website Preview" class="portfolio-preview" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <img src="https://logo.clearbit.com/pawinheaven.com" alt="Paws in Heaven" onerror="this.style.display='none';this.parentElement.textContent='PH'" />
@@ -1648,6 +1679,9 @@
       <p class="section-sub reveal">A tight-knit team with the combined skills of a full-service agency — and the personal attention of a dedicated partner.</p>
       <div class="team-grid">
         <div class="team-card reveal-left">
+          <div class="team-photo-wrap">
+            <img src="/Photos/team-photo.png" alt="El Paso Advertising Solutions Team" loading="lazy" />
+          </div>
           <div class="team-avatar">N</div>
           <div class="team-name">Nolean Francisco</div>
           <div class="team-role">Web Developer &amp; AI Specialist</div>
