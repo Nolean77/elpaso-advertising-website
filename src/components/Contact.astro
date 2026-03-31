@@ -2,23 +2,26 @@
 const contactMethods = [
   {
     icon: 'email',
-    title: 'Email Us',
+    title: 'Email',
     detail: 'info@elpasoadvertisingsolutions.com',
+    link: 'mailto:info@elpasoadvertisingsolutions.com',
     sub: 'We reply within 24 hours',
     color: '#06b6d4',
   },
   {
     icon: 'phone',
-    title: 'Call or Text',
+    title: 'Phone',
     detail: '+52 (656) 388-2009',
+    link: 'tel:+526563882009',
     sub: 'Mon–Fri, 9am–6pm CST',
     color: '#10b981',
   },
   {
     icon: 'location',
-    title: 'Based in El Paso',
-    detail: 'Serving the Americas',
-    sub: 'US, Mexico & Latin America',
+    title: 'Location',
+    detail: 'El Paso, TX',
+    link: null,
+    sub: 'Serving the Americas',
     color: '#f59e0b',
   },
 ];
@@ -28,119 +31,129 @@ const contactMethods = [
   <div class="section-bg" aria-hidden="true"></div>
 
   <div class="container">
+    <!-- Section Header -->
     <div class="section-header" data-reveal>
-      <span class="section-label">Get in Touch</span>
-      <h2>Let's Grow Your Business</h2>
-      <p>Ready to take your online presence to the next level? Reach out — we'd love to hear about your project.</p>
+      <span class="section-label">Contact Us</span>
+      <h2>Get In Touch</h2>
+      <p>Ready to elevate your online presence? Send us a message or reach out directly — we'd love to hear about your project.</p>
     </div>
 
-    <!-- Contact Form -->
-    <div class="form-wrapper" data-reveal>
-      <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <!-- Web3Forms Access Key -->
-        <input type="hidden" name="access_key" value="f0a698f3-4325-4261-b60b-1d94dfb8ab1f" />
-        
-        <!-- Honeypot spam protection -->
-        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required placeholder="Your full name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email <span class="required">*</span></label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com" />
-          </div>
+    <!-- Main Content: Contact Info + Form -->
+    <div class="contact-layout" data-reveal>
+      <!-- Left: Contact Methods -->
+      <div class="contact-info">
+        <div class="contact-methods">
+          {contactMethods.map(m => (
+            <a 
+              class="contact-method" 
+              href={m.link || '#'} 
+              target={m.link?.startsWith('http') ? '_blank' : undefined}
+              rel={m.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
+              style={`--mc: ${m.color};`}
+            >
+              <div class="method-icon">
+                {m.icon === 'email' && (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M22 4L12 13 2 4"/>
+                  </svg>
+                )}
+                {m.icon === 'phone' && (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                )}
+                {m.icon === 'location' && (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                )}
+              </div>
+              <div class="method-content">
+                <span class="method-title">{m.title}</span>
+                <span class="method-detail">{m.detail}</span>
+                <span class="method-sub">{m.sub}</span>
+              </div>
+            </a>
+          ))}
         </div>
 
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="What is this about?" />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message <span class="required">*</span></label>
-          <textarea id="message" name="message" required rows="5" placeholder="Tell us about your project..."></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">
-          <span class="btn-text">Send Message</span>
-          <span class="btn-loading" style="display: none;">
-            <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" stroke-opacity="0.3" />
-              <path d="M12 2a10 10 0 0 1 10 10" />
-            </svg>
-            Sending...
-          </span>
-          <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+        <!-- WhatsApp CTA -->
+        <a href="https://wa.me/+526563882009" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-        </button>
-      </form>
-
-      <!-- Success/Error Messages -->
-      <div id="form-success" class="form-message success" style="display: none;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-          <polyline points="22 4 12 14.01 9 11.01"/>
-        </svg>
-        <div>
-          <strong>Message sent successfully!</strong>
-          <p>We'll get back to you within 24 hours.</p>
-        </div>
+          Chat on WhatsApp
+        </a>
       </div>
 
-      <div id="form-error" class="form-message error" style="display: none;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="15" y1="9" x2="9" y2="15"/>
-          <line x1="9" y1="9" x2="15" y2="15"/>
-        </svg>
-        <div>
-          <strong>Something went wrong.</strong>
-          <p>Please try again or email us directly.</p>
-        </div>
-      </div>
-    </div>
+      <!-- Right: Contact Form -->
+      <div class="contact-form-wrapper">
+        <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="f0a698f3-4325-4261-b60b-1d94dfb8ab1f" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
-    <!-- Contact Method Cards -->
-    <div class="contact-grid" data-reveal>
-      {contactMethods.map(m => (
-        <div class="contact-card" style={`--mc: ${m.color};`}>
-          <div class="card-icon">
-            {m.icon === 'email' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M22 4L12 13 2 4"/>
-              </svg>
-            )}
-            {m.icon === 'phone' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-            )}
-            {m.icon === 'location' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            )}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" />
+            </div>
           </div>
-          <h3 class="card-title">{m.title}</h3>
-          <p class="card-detail">{m.detail}</p>
-          <p class="card-sub">{m.sub}</p>
-        </div>
-      ))}
-    </div>
 
-    <div class="contact-cta" data-reveal>
-      <a href="https://wa.me/+526563882009" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        Chat on WhatsApp
-      </a>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What is this about?" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" required rows="5" placeholder="Tell us about your project..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loading" style="display: none;">
+              <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" stroke-opacity="0.3" />
+                <path d="M12 2a10 10 0 0 1 10 10" />
+              </svg>
+              Sending...
+            </span>
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Success/Error Messages -->
+        <div id="form-success" class="form-message success" style="display: none;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <div>
+            <strong>Message sent successfully!</strong>
+            <p>We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+
+        <div id="form-error" class="form-message error" style="display: none;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+          <div>
+            <strong>Something went wrong.</strong>
+            <p>Please try again or email us directly.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -228,17 +241,123 @@ const contactMethods = [
     position: relative;
   }
 
-  /* ── Form Styles ── */
-  .form-wrapper {
-    max-width: 720px;
-    margin: 0 auto 3.5rem;
+  /* ── Layout ── */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: start;
   }
 
-  .contact-form {
+  /* ── Contact Info (Left Column) ── */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+
+  .contact-method:hover {
+    border-color: color-mix(in srgb, var(--mc) 40%, transparent);
+    transform: translateX(4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  .method-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    background: color-mix(in srgb, var(--mc) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--mc) 25%, transparent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mc);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .contact-method:hover .method-icon {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--mc) 20%, transparent);
+  }
+
+  .method-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .method-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .method-detail {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .method-sub {
+    font-size: 0.8rem;
+    color: var(--text-subtle);
+  }
+
+  /* ── WhatsApp Button ── */
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: #25D366;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  }
+
+  .whatsapp-btn:hover {
+    background: #20bd5a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+  }
+
+  /* ── Form Styles ── */
+  .contact-form-wrapper {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 2.5rem;
+  }
+
+  .contact-form {
+    /* inherits from wrapper */
   }
 
   .form-row {
@@ -368,98 +487,29 @@ const contactMethods = [
     margin: 0;
   }
 
-  /* ── Contact Cards ── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .contact-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    text-align: center;
-    transition: border-color 0.3s, transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
-  }
-
-  .contact-card:hover {
-    border-color: color-mix(in srgb, var(--mc) 40%, transparent);
-    transform: translateY(-6px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-  }
-
-  .card-icon {
-    width: 56px; height: 56px;
-    background: color-mix(in srgb, var(--mc) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--mc) 25%, transparent);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--mc);
-    margin: 0 auto 1.25rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .contact-card:hover .card-icon {
-    transform: scale(1.1);
-    box-shadow: 0 8px 24px color-mix(in srgb, var(--mc) 20%, transparent);
-  }
-
-  .card-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.5rem;
-  }
-
-  .card-detail {
-    font-size: 0.95rem;
-    color: var(--text);
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-
-  .card-sub {
-    font-size: 0.78rem;
-    color: var(--text-subtle);
-  }
-
-  .contact-cta {
-    text-align: center;
-  }
-
-  .btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: #25D366;
-    color: #fff;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 1rem 2rem;
-    border-radius: var(--radius);
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 24px rgba(37,211,102,0.35);
-  }
-
-  .btn-whatsapp:hover {
-    background: #20bd5a;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(37,211,102,0.5);
-  }
 
   .hidden {
     display: none;
   }
 
+  @media (max-width: 900px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-info {
+      order: -1;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 768px) {
-    .contact-form {
+    .contact-form-wrapper {
       padding: 1.5rem;
     }
 
@@ -468,11 +518,9 @@ const contactMethods = [
       gap: 0;
     }
 
-    .contact-grid {
-      grid-template-columns: 1fr;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+    .whatsapp-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
