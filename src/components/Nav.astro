@@ -1,15 +1,14 @@
 ---
 const navLinks = [
-  { name: 'Services',     href: '#services'     },
-  { name: 'Portfolio',    href: '#portfolio'    },
-  { name: 'Team',         href: '#team'         },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Contact',      href: '#contact'      },
+  { name: 'Services',  href: '#services'  },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Team',      href: '#team'      },
+  { name: 'Contact',   href: '#contact'   },
 ];
 ---
 
 <header class="nav-header" id="site-nav">
-  <nav class="nav-inner">
+  <nav class="nav-inner" aria-label="Main navigation">
     <!-- Logo -->
     <a href="/" class="nav-logo" aria-label="El Paso Advertising Solutions – Home">
       <div class="logo-mark" aria-hidden="true">
@@ -36,12 +35,16 @@ const navLinks = [
     </ul>
 
     <!-- CTA -->
-    <a href="#contact" class="nav-cta">
-      Free Consultation
-    </a>
+    <a href="#contact" class="nav-cta">Free Consultation</a>
 
     <!-- Mobile hamburger -->
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -68,7 +71,7 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(7,8,15,0.6);
+    background: rgba(7,8,15,0.5);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -91,7 +94,7 @@ const navLinks = [
     gap: 2rem;
   }
 
-  /* ── Logo ── */
+  /* Logo */
   .nav-logo {
     display: flex;
     align-items: center;
@@ -101,17 +104,12 @@ const navLinks = [
     transition: opacity 0.2s;
   }
 
-  .nav-logo:hover {
-    opacity: 0.85;
-  }
+  .nav-logo:hover             { opacity: 0.85; }
+  .nav-logo:hover .logo-mark  { transform: rotate(-5deg) scale(1.05); }
 
   .logo-mark {
     flex-shrink: 0;
     transition: transform 0.3s;
-  }
-
-  .nav-logo:hover .logo-mark {
-    transform: rotate(-5deg) scale(1.05);
   }
 
   .logo-text {
@@ -123,11 +121,9 @@ const navLinks = [
     white-space: nowrap;
   }
 
-  .logo-ep {
-    color: var(--accent);
-  }
+  .logo-ep { color: var(--accent); }
 
-  /* ── Desktop links ── */
+  /* Desktop links */
   .nav-links {
     display: flex;
     align-items: center;
@@ -153,7 +149,7 @@ const navLinks = [
     background: rgba(255,255,255,0.07);
   }
 
-  /* ── CTA ── */
+  /* CTA */
   .nav-cta {
     background: var(--accent);
     color: #07080f;
@@ -175,7 +171,7 @@ const navLinks = [
     transform: translateY(-1px);
   }
 
-  /* ── Hamburger ── */
+  /* Hamburger */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -189,8 +185,7 @@ const navLinks = [
 
   .hamburger span {
     display: block;
-    width: 22px;
-    height: 2px;
+    width: 22px; height: 2px;
     background: var(--text-muted);
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -201,7 +196,7 @@ const navLinks = [
   .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--accent); }
 
-  /* ── Mobile menu ── */
+  /* Mobile menu */
   .mobile-menu {
     display: none;
     overflow: hidden;
@@ -211,9 +206,7 @@ const navLinks = [
     background: rgba(7,8,15,0.97);
   }
 
-  .mobile-menu.open {
-    max-height: 420px;
-  }
+  .mobile-menu.open { max-height: 420px; }
 
   .mobile-menu ul {
     list-style: none;
@@ -259,9 +252,9 @@ const navLinks = [
   }
 
   @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-cta   { display: none; }
-    .hamburger { display: flex; }
+    .nav-links  { display: none; }
+    .nav-cta    { display: none; }
+    .hamburger  { display: flex; }
     .mobile-menu { display: block; }
   }
 
@@ -271,8 +264,8 @@ const navLinks = [
 </style>
 
 <script>
-  const header    = document.getElementById('site-nav');
-  const hamburger = document.getElementById('hamburger');
+  const header     = document.getElementById('site-nav');
+  const hamburger  = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
 
   window.addEventListener('scroll', () => {

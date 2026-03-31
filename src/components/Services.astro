@@ -1,4 +1,4 @@
-res---
+---
 const services = [
   {
     id: 'social',
@@ -52,7 +52,6 @@ const services = [
 ---
 
 <section id="services" class="services-section">
-  <!-- Section bg decoration -->
   <div class="section-bg" aria-hidden="true"></div>
 
   <div class="container">
@@ -70,10 +69,8 @@ const services = [
           data-reveal
           data-reveal-delay={String(i + 1)}
         >
-          <!-- Number -->
           <div class="card-num" aria-hidden="true">{s.num}</div>
 
-          <!-- Icon -->
           <div class="card-icon-wrap">
             {s.icon === 'social' && (
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -122,7 +119,6 @@ const services = [
       ))}
     </div>
 
-    <!-- Bottom nudge -->
     <p class="services-note" data-reveal>
       Not sure which service you need?
       <a href="#contact">Let's talk — we'll figure it out together. →</a>
@@ -153,14 +149,12 @@ const services = [
     position: relative;
   }
 
-  /* ── Grid ── */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
-  /* ── Card ── */
   .service-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -174,7 +168,6 @@ const services = [
     transition: border-color 0.35s, transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s;
   }
 
-  /* Top gradient on hover */
   .service-card::before {
     content: '';
     position: absolute;
@@ -185,7 +178,6 @@ const services = [
     transition: opacity 0.35s;
   }
 
-  /* BG glow on hover */
   .service-card::after {
     content: '';
     position: absolute;
@@ -203,15 +195,11 @@ const services = [
   }
 
   .service-card:hover::before,
-  .service-card:hover::after {
-    opacity: 1;
-  }
+  .service-card:hover::after { opacity: 1; }
 
-  /* ── Number ── */
   .card-num {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 2rem; right: 2rem;
     font-family: var(--font-display);
     font-size: 3.5rem;
     font-weight: 800;
@@ -223,11 +211,8 @@ const services = [
     transition: opacity 0.3s;
   }
 
-  .service-card:hover .card-num {
-    opacity: 0.12;
-  }
+  .service-card:hover .card-num { opacity: 0.12; }
 
-  /* ── Icon ── */
   .card-icon-wrap {
     width: 54px; height: 54px;
     background: var(--card-glow);
@@ -249,7 +234,6 @@ const services = [
     box-shadow: 0 8px 28px var(--card-glow);
   }
 
-  /* ── Text ── */
   .card-title {
     font-size: 1.3rem;
     font-weight: 700;
@@ -268,7 +252,6 @@ const services = [
     z-index: 1;
   }
 
-  /* ── Features ── */
   .card-features {
     list-style: none;
     display: flex;
@@ -294,7 +277,6 @@ const services = [
     flex-shrink: 0;
   }
 
-  /* ── CTA ── */
   .card-cta {
     display: inline-flex;
     align-items: center;
@@ -312,11 +294,8 @@ const services = [
     z-index: 1;
   }
 
-  .card-cta:hover {
-    gap: 0.875rem;
-  }
+  .card-cta:hover { gap: 0.875rem; }
 
-  /* ── Note ── */
   .services-note {
     text-align: center;
     color: var(--text-subtle);
@@ -333,7 +312,6 @@ const services = [
 
   .services-note a:hover { color: #22d3ee; }
 
-  /* ── Responsive ── */
   @media (max-width: 960px) {
     .services-grid {
       grid-template-columns: 1fr;
