@@ -340,12 +340,19 @@ const structuredData = JSON.stringify({
       align-items: center;
       justify-content: center;
       gap: 2rem;
-      padding: 2rem;
+      padding: 0 2rem;
       max-height: 0;
       overflow: hidden;
+      pointer-events: none;
+      visibility: hidden;
       transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .nav-mobile.open { max-height: calc(100vh - var(--nav-h)); }
+    .nav-mobile.open {
+      max-height: calc(100vh - var(--nav-h));
+      padding: 2rem;
+      pointer-events: auto;
+      visibility: visible;
+    }
     .nav-mobile a {
       font-family: var(--font-display);
       font-size: 2rem;
@@ -872,13 +879,24 @@ const structuredData = JSON.stringify({
     }
     .portfolio-preview {
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 4 / 3;
+      height: auto;
       object-fit: cover;
+      object-position: center;
+      display: block;
       border-radius: 10px;
       margin-bottom: 1.25rem;
       border: 1px solid var(--border);
+      background: #101022;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
+    .preview-solafire { object-position: 50% 28%; }
+    .preview-pollo { object-position: 50% 42%; }
+    .preview-pulmonary { object-position: 50% 30%; }
+    .preview-rvpark { object-position: 50% 40%; }
+    .preview-futurestrike { object-position: 50% 34%; }
+    .preview-toprv { object-position: 50% 36%; }
+    .preview-paws { object-position: 50% 30%; }
     .portfolio-card:hover .portfolio-preview {
       transform: scale(1.02);
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
@@ -1462,6 +1480,14 @@ const structuredData = JSON.stringify({
       .nav-toggle { display: flex; }
       .team-grid { grid-template-columns: 1fr; }
       .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-preview { aspect-ratio: 5 / 4; }
+      .preview-solafire { object-position: 50% 24%; }
+      .preview-pollo { object-position: 50% 38%; }
+      .preview-pulmonary { object-position: 50% 26%; }
+      .preview-rvpark { object-position: 50% 36%; }
+      .preview-futurestrike { object-position: 50% 30%; }
+      .preview-toprv { object-position: 50% 32%; }
+      .preview-paws { object-position: 50% 26%; }
       .services-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
@@ -1729,7 +1755,7 @@ const structuredData = JSON.stringify({
       </div>
       <div class="portfolio-grid">
         <div class="portfolio-card reveal">
-          <Image src={solafirePhoto} alt="Solafire Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={solafirePhoto} alt="Solafire Website Preview" class="portfolio-preview preview-solafire" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <Image src={solafireLogo} alt="Solafire" width={44} height={44} loading="lazy" />
@@ -1745,7 +1771,7 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Bilingual digital presence for a pulmonology practice serving patients on both sides of the US-Mexico border.</p>
         </div>
         <div class="portfolio-card reveal">
-          <Image src={polloRicoPhoto} alt="El Pollo Rico Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={polloRicoPhoto} alt="El Pollo Rico Website Preview" class="portfolio-preview preview-pollo" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <Image src={polloRicoLogo} alt="El Pollo Rico" width={44} height={44} loading="lazy" />
@@ -1761,7 +1787,7 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Vibrant social content and brand strategy for a beloved El Paso restaurant institution with a loyal local following.</p>
         </div>
         <div class="portfolio-card reveal">
-          <Image src={pulmonaryHealthCenterPhoto} alt="Pulmonary Health Center Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={pulmonaryHealthCenterPhoto} alt="Pulmonary Health Center Website Preview" class="portfolio-preview preview-pulmonary" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <Image src={pulmonaryHealthLogo} alt="Pulmonary Health Center" width={44} height={44} loading="lazy" />
@@ -1777,7 +1803,7 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Cross-border healthcare marketing driving patient awareness and building lasting trust across two markets.</p>
         </div>
         <div class="portfolio-card reveal">
-          <Image src={rvParkPhoto} alt="EP Roadrunner RV Park Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={rvParkPhoto} alt="EP Roadrunner RV Park Website Preview" class="portfolio-preview preview-rvpark" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <Image src={roadrunnerRvLogo} alt="EP Roadrunner RV" width={44} height={44} loading="lazy" />
@@ -1793,7 +1819,7 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Online brand building for a premier RV resort destination attracting travelers from across North America.</p>
         </div>
         <div class="portfolio-card reveal">
-          <Image src={futureStrikePhoto} alt="Future Strike Bowling Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={futureStrikePhoto} alt="Future Strike Bowling Website Preview" class="portfolio-preview preview-futurestrike" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo" style="background:rgba(108,99,255,0.1);border-color:rgba(108,99,255,0.2);color:var(--accent);">FS</div>
             <div class="portfolio-tags">
@@ -1807,7 +1833,7 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Retail brand launch and digital strategy for an El Paso bowling pro shop from the ground up.</p>
         </div>
         <div class="portfolio-card reveal">
-          <Image src={topRvPartsPhoto} alt="Top RV Parts Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={topRvPartsPhoto} alt="Top RV Parts Website Preview" class="portfolio-preview preview-toprv" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <Image src={topRvPartsLogo} alt="Top RV Parts" width={44} height={44} loading="lazy" />
@@ -1823,7 +1849,7 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">E-commerce growth strategy and online store development for a national RV parts retailer serving North America.</p>
         </div>
         <div class="portfolio-card reveal">
-          <Image src={pawsInHeavenPhoto} alt="Paws in Heaven Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={pawsInHeavenPhoto} alt="Paws in Heaven Website Preview" class="portfolio-preview preview-paws" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
               <Image src={pawsInHeavenLogo} alt="Paws in Heaven" width={44} height={44} loading="lazy" />
