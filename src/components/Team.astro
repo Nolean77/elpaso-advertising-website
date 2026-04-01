@@ -1,4 +1,4 @@
-gy through ---
+---
 import { Image } from 'astro:assets';
 import teamPhoto from '../assets/team-photo.png';
 
@@ -29,20 +29,17 @@ const team = [
 
   <div class="container">
 
-    <!-- Section header -->
     <div class="section-header" data-reveal>
       <span class="section-label">Our Team</span>
       <h2>Two Minds, One Mission</h2>
       <p>A tight-knit team with the combined skills of a full-service agency — and the personal attention of a local partner.</p>
     </div>
 
-    <!-- ── Team Photo + Bios layout ── -->
     <div class="team-layout" data-reveal>
 
       <!-- Photo Column -->
       <div class="team-photo-col">
         <div class="photo-frame">
-          <!-- Decorative elements -->
           <div class="frame-corner frame-tl" aria-hidden="true"></div>
           <div class="frame-corner frame-br" aria-hidden="true"></div>
 
@@ -56,7 +53,6 @@ const team = [
             class="team-img"
           />
 
-          <!-- Name labels -->
           <div class="name-tag name-tag-left">
             <span class="tag-dot" style="background: #06b6d4;"></span>
             Nolean
@@ -67,7 +63,6 @@ const team = [
           </div>
         </div>
 
-        <!-- Tagline below photo -->
         <div class="photo-tagline">
           <div class="tagline-line"></div>
           <p>Est. 2020 · US, Mexico &amp; Latin America</p>
@@ -84,10 +79,8 @@ const team = [
             data-reveal
             data-reveal-delay={String(i + 1)}
           >
-            <!-- Color accent strip -->
             <div class="bio-accent" aria-hidden="true"></div>
 
-            <!-- Header -->
             <div class="bio-header">
               <div class="bio-avatar">
                 <span>{member.name.charAt(0)}</span>
@@ -98,10 +91,8 @@ const team = [
               </div>
             </div>
 
-            <!-- Bio text -->
             <p class="bio-text">{member.bio}</p>
 
-            <!-- Strengths -->
             <div class="bio-strengths" aria-label={`${member.name}'s specialties`}>
               {member.strengths.map(s => (
                 <span class="strength-pill">{s}</span>
@@ -110,7 +101,6 @@ const team = [
           </article>
         ))}
 
-        <!-- Together callout -->
         <div class="together-callout" data-reveal data-reveal-delay="3">
           <div class="callout-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
@@ -158,7 +148,6 @@ const team = [
     position: relative;
   }
 
-  /* ── Main layout ── */
   .team-layout {
     display: grid;
     grid-template-columns: 420px 1fr;
@@ -166,10 +155,7 @@ const team = [
     align-items: start;
   }
 
-  /* ── Photo Column ── */
-  .team-photo-col {
-    position: relative;
-  }
+  .team-photo-col { position: relative; }
 
   .photo-frame {
     position: relative;
@@ -177,7 +163,6 @@ const team = [
     overflow: visible;
   }
 
-  /* Corner decorations */
   .frame-corner {
     position: absolute;
     width: 32px; height: 32px;
@@ -214,7 +199,6 @@ const team = [
       0 0 0 1px rgba(255,255,255,0.05);
   }
 
-  /* Name tags */
   .name-tag {
     position: absolute;
     bottom: 24px;
@@ -243,7 +227,6 @@ const team = [
     box-shadow: 0 0 6px currentColor;
   }
 
-  /* Tagline below photo */
   .photo-tagline {
     display: flex;
     align-items: center;
@@ -267,14 +250,12 @@ const team = [
     white-space: nowrap;
   }
 
-  /* ── Bios Column ── */
   .team-bios-col {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
 
-  /* ── Bio Card ── */
   .bio-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -291,7 +272,6 @@ const team = [
     box-shadow: 0 16px 48px rgba(0,0,0,0.35);
   }
 
-  /* Left accent bar */
   .bio-accent {
     position: absolute;
     left: 0; top: 0; bottom: 0;
@@ -301,7 +281,6 @@ const team = [
     opacity: 0.7;
   }
 
-  /* Header */
   .bio-header {
     display: flex;
     align-items: center;
@@ -326,9 +305,7 @@ const team = [
     box-shadow: 0 0 20px var(--mg);
   }
 
-  .bio-title-block {
-    flex: 1;
-  }
+  .bio-title-block { flex: 1; }
 
   .bio-name {
     font-size: 1.25rem;
@@ -346,7 +323,6 @@ const team = [
     text-transform: uppercase;
   }
 
-  /* Bio text */
   .bio-text {
     color: var(--text-muted);
     font-size: 0.9rem;
@@ -355,7 +331,6 @@ const team = [
     padding-left: 0.5rem;
   }
 
-  /* Strengths */
   .bio-strengths {
     display: flex;
     flex-wrap: wrap;
@@ -374,7 +349,6 @@ const team = [
     letter-spacing: 0.03em;
   }
 
-  /* ── Together Callout ── */
   .together-callout {
     background: linear-gradient(135deg,
       rgba(6,182,212,0.06) 0%,
@@ -447,7 +421,6 @@ const team = [
     box-shadow: 0 6px 24px rgba(245,158,11,0.4);
   }
 
-  /* ── Responsive ── */
   @media (max-width: 1024px) {
     .team-layout {
       grid-template-columns: 360px 1fr;
@@ -466,8 +439,6 @@ const team = [
       margin: 0 auto;
     }
 
-    .bio-card:hover {
-      transform: translateY(-4px);
-    }
+    .bio-card:hover { transform: translateY(-4px); }
   }
 </style>
