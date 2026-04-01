@@ -1,5 +1,7 @@
 ---
 // TODO: Have this reviewed by a legal professional before launch
+import { CONTACT, LINKS } from '../data/site';
+
 const pageTitle = 'Privacy Policy — El Paso Advertising Solutions';
 const pageDescription = 'Privacy Policy for El Paso Advertising Solutions. Learn how we collect, use, and protect your information.';
 ---
@@ -188,7 +190,7 @@ const pageDescription = 'Privacy Policy for El Paso Advertising Solutions. Learn
     <main class="privacy-page">
       <header class="page-header">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: January 1, 2026</p>
+        <p class="last-updated">Last updated: March 31, 2026</p>
       </header>
 
       <section class="privacy-section">
@@ -242,8 +244,8 @@ const pageDescription = 'Privacy Policy for El Paso Advertising Solutions. Learn
         <p>
           <strong>El Paso Advertising Solutions</strong><br />
           El Paso, TX · Border Region<br />
-          Email: <a href="mailto:carlosterrazask@gmail.com">carlosterrazask@gmail.com</a><br />
-          WhatsApp: <a href="https://wa.me/+526563882009" target="_blank" rel="noopener noreferrer">wa.me/+526563882009</a>
+          Email: <a href={LINKS.mailto}>{CONTACT.email}</a><br />
+          WhatsApp: <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">{CONTACT.whatsappDisplay}</a>
         </p>
       </section>
 

@@ -1,21 +1,22 @@
 ---
+import { CONTACT, LINKS, SOCIAL } from '../data/site';
+
 const contactInfo = [
   {
     label: 'Email',
-    value: 'carlosterrazask@gmail.com',
-    href: 'mailto:carlosterrazask@gmail.com',
-    // TODO: Replace with a professional domain email (e.g., carlos@elpasoadvertisingsolutions.com) before promoting the site publicly
+    value: CONTACT.email,
+    href: LINKS.mailto,
     icon: 'email',
   },
   {
     label: 'WhatsApp',
     value: 'Chat with us on WhatsApp',
-    href: 'https://wa.me/+526563882009',
+    href: LINKS.whatsapp,
     icon: 'whatsapp',
   },
   {
     label: 'Location',
-    value: 'El Paso, TX · Austin, TX · Latin America',
+    value: CONTACT.location,
     href: null,
     icon: 'pin',
   },
@@ -85,13 +86,13 @@ const contactInfo = [
         <div class="social-block">
           <p class="social-label">Follow Us</p>
           <div class="social-row">
-            <a href="https://www.facebook.com/ElPasoAdsSolutions" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow us on Facebook (opens in new tab)">
+            <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow us on Facebook (opens in new tab)">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
               </svg>
               <span>Facebook</span>
             </a>
-            <a href="https://www.instagram.com/elpasoadssolutions" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow us on Instagram (opens in new tab)">
+            <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow us on Instagram (opens in new tab)">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
