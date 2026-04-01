@@ -1,26 +1,2334 @@
 ---
-import BaseLayout    from '../layouts/BaseLayout.astro';
-import Nav           from '../components/Nav.astro';
-import Hero          from '../components/Hero.astro';
-import Services      from '../components/Services.astro';
-import Portfolio     from '../components/Portfolio.astro';
-import Team          from '../components/Team.astro';
-import Contact       from '../components/Contact.astro';
-import Footer        from '../components/Footer.astro';
+// El Paso Advertising Solutions — index.astro
+import { CONTACT, LINKS, SOCIAL } from '../data/site';
+
+// Main landing page with inline CSS/JS for a single-file render.
+const siteUrl = 'https://elpasoadvertisingsolutions.com';
+const structuredData = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'El Paso Advertising Solutions',
+  url: siteUrl,
+  description: 'Bilingual digital marketing agency helping businesses across the Americas grow online.',
+  telephone: `+${CONTACT.whatsappNumber}`,
+  email: CONTACT.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'El Paso',
+    addressRegion: 'TX',
+    addressCountry: 'US',
+  },
+  areaServed: ['US', 'MX', 'CA', 'PE', 'BO'],
+  sameAs: [SOCIAL.facebook, SOCIAL.instagram],
+});
 ---
 
-<BaseLayout
-  title="El Paso Advertising Solutions | Digital Marketing & Web Design"
-  description="A bilingual digital marketing agency helping businesses across the Americas grow online — social media management, web design, and content creation."
-  canonicalUrl="https://elpasoadvertisingsolutions.com"
->
-  <Nav />
-  <main>
-    <Hero />
-    <Services />
-    <Portfolio />
-    <Team />
-    <Contact />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Paso Advertising Solutions | Digital Marketing & Web Design</title>
+  <meta name="description" content="A bilingual digital marketing agency helping businesses across the Americas grow online — social media management, web design, and content creation." />
+  <meta name="keywords" content="El Paso marketing, digital marketing agency, social media management, web design, content creation, Latin America marketing, bilingual marketing, Canada marketing" />
+  <meta property="og:title" content="El Paso Advertising Solutions" />
+  <meta property="og:description" content="Your Business, Amplified Online. A bilingual digital marketing agency serving clients across the Americas." />
+  <meta property="og:url" content={siteUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="El Paso Advertising Solutions" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="El Paso Advertising Solutions" />
+  <meta name="twitter:description" content="Your Business, Amplified Online. A bilingual digital marketing agency serving clients across the Americas." />
+  <link rel="canonical" href={siteUrl} />
+  <meta name="theme-color" content="#6c63ff" />
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236c63ff'/><text y='.9em' font-size='60' font-family='sans-serif' font-weight='900' fill='white' x='12'>EP</text></svg>" />
+
+  <!-- robots.txt equivalent via meta -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- Structured data for local SEO -->
+  <script type="application/ld+json" set:html={structuredData}></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TQVQTG67"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'GT-TQVQTG67');
+    gtag('config', 'G-HH0WK3FSBJ');
+  </script>
+
+  <!-- GSAP + Plugins — is:inline required so Astro doesn't bundle these -->
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+  <!-- Lenis Smooth Scroll — is:inline required -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <style>
+    /* ===========================
+       CSS CUSTOM PROPERTIES
+    =========================== */
+    :root {
+      --bg: #080810;
+      --bg-2: #0d0d1a;
+      --bg-3: #111124;
+      --accent: #6c63ff;
+      --accent-2: #ff6584;
+      --accent-3: #43e97b;
+      --text: #f0f0ff;
+      --text-muted: #8888aa;
+      --border: rgba(108, 99, 255, 0.15);
+      --glow: rgba(108, 99, 255, 0.3);
+      --font-body: 'Inter', sans-serif;
+      --font-display: 'Syne', sans-serif;
+      --max-w: 1200px;
+      --radius: 16px;
+      --nav-h: 72px;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: auto; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ul { list-style: none; }
+
+    .skip-link {
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      transform: translateY(-140%);
+      padding: 0.75rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 0 0 10px 10px;
+      z-index: 10001;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* ===========================
+       NOISE OVERLAY
+    =========================== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ===========================
+       GRADIENT ORBS
+    =========================== */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+      animation: orbFloat 12s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -200px; animation-delay: 0s; }
+    .orb-2 { width: 500px; height: 500px; background: var(--accent-2); bottom: 10%; right: -150px; animation-delay: -4s; }
+    .orb-3 { width: 400px; height: 400px; background: var(--accent-3); top: 40%; left: 30%; animation-delay: -8s; opacity: 0.1; }
+    @keyframes orbFloat {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(40px, 30px) scale(1.08); }
+    }
+
+    /* ===========================
+       SCROLLBAR
+    =========================== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ===========================
+       NAV
+    =========================== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav.scrolled {
+      background: rgba(8, 8, 16, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.5px;
+      box-shadow: 0 0 20px var(--glow);
+      transition: box-shadow 0.3s;
+    }
+    .nav-logo:hover .nav-logo-icon { box-shadow: 0 0 40px var(--glow); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      padding: 0.5rem 1.25rem;
+      background: var(--accent);
+      color: #fff !important;
+      border-radius: 8px;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: #7c74ff !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 20px var(--glow) !important;
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: var(--nav-h);
+      background: rgba(8,8,16,0.97);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-mobile a:hover { color: var(--text); }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 4rem) clamp(1.5rem, 5vw, 3rem) 4rem;
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(108, 99, 255, 0.1);
+      border: 1px solid rgba(108, 99, 255, 0.25);
+      border-radius: 100px;
+      padding: 0.35rem 0.85rem;
+      margin-bottom: 2rem;
+      width: fit-content;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--accent-3);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.4); opacity: 0.6; }
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin-bottom: 1.75rem;
+    }
+    .hero-title .word { display: inline-block; overflow: hidden; }
+    .hero-title .word-inner { display: inline-block; transform: translateY(110%); }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--glow);
+      background: #7c74ff;
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+    }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+    .hero-stat-num span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===========================
+       MARQUEE
+    =========================== */
+    .marquee-wrap {
+      padding: 1.5rem 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 2.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .marquee-item .sep {
+      width: 4px; height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ===========================
+       REGIONS BANNER
+    =========================== */
+    .regions-banner {
+      background: var(--bg-3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem clamp(1.5rem, 5vw, 3rem);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .regions-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(108,99,255,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .regions-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .regions-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .regions-flags {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .region-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .region-item .flag { font-size: 1.1rem; }
+    .regions-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       SECTION STYLES
+    =========================== */
+    .section {
+      padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 3rem);
+      position: relative;
+      z-index: 1;
+    }
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .section-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* Reveal animation classes */
+    .reveal       { opacity: 0; transform: translateY(40px); }
+    .reveal-left  { opacity: 0; transform: translateX(-40px); }
+    .reveal-right { opacity: 0; transform: translateX(40px); }
+
+    /* ===========================
+       SERVICES
+    =========================== */
+    #services { background: var(--bg); }
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .service-card {
+      background: var(--bg-2);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(108,99,255,0.06), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .service-card:hover { background: var(--bg-3); }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover .service-icon { transform: scale(1.1) rotate(-5deg); box-shadow: 0 8px 32px var(--glow); }
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(108,99,255,0.12);
+      border: 1px solid rgba(108,99,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      transition: color 0.2s;
+    }
+    .service-card:hover .service-title { color: var(--accent); }
+    .service-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .service-features { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 2rem; }
+    .service-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .service-feature::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      transition: gap 0.2s;
+    }
+    .service-link:hover { gap: 0.75rem; }
+
+    /* ===========================
+       PORTFOLIO
+    =========================== */
+    #portfolio { background: var(--bg-2); }
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .portfolio-card {
+      background: var(--bg-3);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .portfolio-card:hover { background: #161630; }
+    .portfolio-preview {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .portfolio-card:hover .portfolio-preview {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .portfolio-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .portfolio-logo {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(108,99,255,0.1);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+      overflow: hidden;
+    }
+    .portfolio-logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 9px; }
+    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .portfolio-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      background: rgba(108,99,255,0.1);
+      border: 1px solid rgba(108,99,255,0.2);
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .portfolio-region {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .portfolio-industry {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .portfolio-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+    .portfolio-card.coming-soon { opacity: 0.55; }
+    .coming-soon-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      background: rgba(255,101,132,0.1);
+      border: 1px solid rgba(255,101,132,0.2);
+      border-radius: 100px;
+      padding: 0.2rem 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ===========================
+       REACH / GLOBAL SECTION
+    =========================== */
+    #reach { background: var(--bg); }
+    .reach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3.5rem;
+    }
+    .reach-map {
+      position: relative;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .reach-map::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(108,99,255,0.12), transparent 70%);
+    }
+    /* SVG world map dots */
+    .reach-dots {
+      position: relative;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+    .reach-location {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+      padding: 1.25rem 0.75rem;
+      background: rgba(108,99,255,0.06);
+      border: 1px solid rgba(108,99,255,0.12);
+      border-radius: 12px;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .reach-location:hover {
+      background: rgba(108,99,255,0.12);
+      border-color: rgba(108,99,255,0.3);
+      transform: translateY(-3px);
+    }
+    .reach-location .flag { font-size: 1.6rem; }
+    .reach-location .country {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .reach-location .city {
+      font-size: 0.68rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .reach-copy { }
+    .reach-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .reach-stat {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: border-color 0.3s;
+    }
+    .reach-stat:hover { border-color: var(--accent); }
+    .reach-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .reach-stat-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+
+    /* ===========================
+       TEAM
+    =========================== */
+    #team { background: var(--bg-2); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .team-showcase {
+      margin-top: 2rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    }
+    .team-showcase img {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .team-card {
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .team-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .team-card:hover::before { transform: scaleX(1); }
+    .team-avatar {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 24px var(--glow);
+    }
+    .team-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .team-role { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 1.25rem; }
+    .team-bio { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .team-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .team-skill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .team-together {
+      margin-top: 3rem;
+      padding: 2.5rem;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-together::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .team-together p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    .team-together strong { color: var(--text); }
+
+    /* ===========================
+       PROCESS
+    =========================== */
+    #process { background: var(--bg); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 3.5rem;
+    }
+    .process-step { background: var(--bg-2); padding: 2rem; transition: background 0.3s; }
+    .process-step:hover { background: var(--bg-3); }
+    .process-step-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, rgba(108,99,255,0.25), rgba(108,99,255,0.05));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .process-step-title { font-family: var(--font-display); font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .process-step-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ===========================
+       CONTACT
+    =========================== */
+    #contact { background: var(--bg-2); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-detail:last-of-type { border-bottom: none; }
+    .contact-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(108,99,255,0.1);
+      border: 1px solid rgba(108,99,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.15rem; }
+    .contact-detail-value { font-weight: 600; font-size: 0.95rem; }
+    .contact-detail-value a { transition: color 0.2s; }
+    .contact-detail-value a:hover { color: var(--accent); }
+    .contact-socials { display: flex; gap: 0.75rem; margin-top: 2rem; }
+    .social-btn {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      color: var(--text-muted);
+    }
+    .social-btn:hover {
+      border-color: var(--accent);
+      background: rgba(108,99,255,0.1);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    /* Contact form */
+    .contact-form-wrap {
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+    }
+    .contact-form-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .contact-form-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108,99,255,0.15);
+    }
+    .form-group select option { background: var(--bg-3); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 800;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px var(--glow);
+    }
+    .form-submit:hover { background: #7c74ff; transform: translateY(-1px); box-shadow: 0 8px 32px var(--glow); }
+    .form-success { display: none; text-align: center; padding: 2rem; }
+    .form-success.show { display: block; }
+    .form-success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .form-success-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .form-success-sub { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 3rem clamp(1.5rem, 5vw, 3rem) 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-brand p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin: 1rem 0; max-width: 280px; }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ===========================
+       CURSOR (DESKTOP)
+    =========================== */
+    .cursor { position: fixed; pointer-events: none; z-index: 9998; mix-blend-mode: difference; }
+    .cursor-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); }
+    .cursor-ring { width: 40px; height: 40px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, border-color 0.3s; }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 60px; height: 60px; border-color: rgba(255,255,255,0.8); }
+
+    /* ===========================
+       SCROLL PROGRESS BAR
+    =========================== */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      z-index: 9997;
+      transform-origin: left;
+      transform: scaleX(0);
+      width: 100%;
+    }
+
+    /* ===========================
+       BACK TO TOP
+    =========================== */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s, background 0.2s;
+      z-index: 100;
+      box-shadow: 0 4px 20px var(--glow);
+    }
+    #back-to-top.visible { opacity: 1; transform: translateY(0); }
+    #back-to-top:hover { background: #7c74ff; }
+
+    /* ===========================
+       LOADING SCREEN
+    =========================== */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .loader-logo { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; gap: 0.75rem; opacity: 0; }
+    .loader-bar-wrap { width: 200px; height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+    .loader-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 2px; width: 0%; transition: width 0.05s linear; }
+    .loader-pct { font-size: 0.75rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+    /* ===========================
+       FLOATING WHATSAPP BUTTON
+    =========================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 5rem;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: whatsappPulse 2s ease-in-out infinite;
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+      animation: none;
+    }
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+    @keyframes whatsappPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7); }
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1024px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .reach-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .team-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .cursor { display: none; }
+      .reach-dots { grid-template-columns: repeat(3, 1fr); }
+      .regions-inner { justify-content: center; }
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
+      .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .reach-dots { grid-template-columns: repeat(2, 1fr); }
+      .reach-stat-grid { grid-template-columns: 1fr; }
+      .whatsapp-float {
+        width: 45px;
+        height: 45px;
+        bottom: 1rem;
+        right: 1rem;
+      }
+      .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orb, .marquee-track { animation: none !important; }
+      .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; }
+      .whatsapp-float { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <div class="loader-logo">
+      <div class="nav-logo-icon" style="width:38px;height:38px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:#fff;letter-spacing:-.5px;">EP</div>
+      El Paso Advertising Solutions
+    </div>
+    <div class="loader-bar-wrap"><div class="loader-bar" id="loader-bar"></div></div>
+    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress"></div>
+
+  <!-- CURSOR (desktop only) -->
+  <div class="cursor" id="cursor-dot-wrap"><div class="cursor-dot"></div></div>
+  <div class="cursor" id="cursor-ring-wrap"><div class="cursor-ring"></div></div>
+
+  <!-- BACKGROUND ORBS -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo" aria-label="El Paso Advertising Solutions home">
+      <div class="nav-logo-icon">EP</div>
+      EP Advertising Solutions
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#reach">Our Reach</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#portfolio" class="mobile-link">Portfolio</a>
+    <a href="#reach" class="mobile-link">Our Reach</a>
+    <a href="#process" class="mobile-link">Process</a>
+    <a href="#team" class="mobile-link">Team</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <main id="main-content">
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-eyebrow" id="hero-eyebrow">
+        <span class="dot"></span>
+        Bilingual · Americas-Wide · Results-Driven
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        <span class="word"><span class="word-inner">Your</span></span>
+        <span class="word"><span class="word-inner">Business,</span></span><br />
+        <span class="word"><span class="word-inner"><em>Amplified</em></span></span>
+        <span class="word"><span class="word-inner">Online.</span></span>
+      </h1>
+
+      <p class="hero-sub" id="hero-sub">
+        A bilingual digital marketing agency built for ambitious businesses. From El Paso to Canada, Peru to Bolivia — we handle your social media, build your website, and create content that actually converts.
+      </p>
+
+      <div class="hero-actions" id="hero-actions">
+        <a href="#contact" class="btn-primary">Get a Free Consultation →</a>
+        <a href="#services" class="btn-secondary">See Our Services</a>
+      </div>
+
+      <div class="hero-stats" id="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count" data-target="10">0</span><span>+</span></div>
+          <div class="hero-stat-label">Clients Served</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count" data-target="5">0</span><span>+</span></div>
+          <div class="hero-stat-label">Countries Reached</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count" data-target="3">0</span></div>
+          <div class="hero-stat-label">Core Services</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count" data-target="2">0</span></div>
+          <div class="hero-stat-label">Languages Spoken</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="sep"></span>Social Media Management</div>
+      <div class="marquee-item"><span class="sep"></span>Website Development</div>
+      <div class="marquee-item"><span class="sep"></span>Content Creation</div>
+      <div class="marquee-item"><span class="sep"></span>Brand Photography</div>
+      <div class="marquee-item"><span class="sep"></span>Paid Advertising</div>
+      <div class="marquee-item"><span class="sep"></span>SEO &amp; Performance</div>
+      <div class="marquee-item"><span class="sep"></span>USA · Mexico · Canada</div>
+      <div class="marquee-item"><span class="sep"></span>Peru · Bolivia</div>
+      <div class="marquee-item"><span class="sep"></span>English &amp; Español</div>
+      <!-- Duplicated for seamless loop -->
+      <div class="marquee-item"><span class="sep"></span>Social Media Management</div>
+      <div class="marquee-item"><span class="sep"></span>Website Development</div>
+      <div class="marquee-item"><span class="sep"></span>Content Creation</div>
+      <div class="marquee-item"><span class="sep"></span>Brand Photography</div>
+      <div class="marquee-item"><span class="sep"></span>Paid Advertising</div>
+      <div class="marquee-item"><span class="sep"></span>SEO &amp; Performance</div>
+      <div class="marquee-item"><span class="sep"></span>USA · Mexico · Canada</div>
+      <div class="marquee-item"><span class="sep"></span>Peru · Bolivia</div>
+      <div class="marquee-item"><span class="sep"></span>English &amp; Español</div>
+    </div>
+  </div>
+
+  <!-- REGIONS BANNER -->
+  <div class="regions-banner">
+    <div class="regions-inner">
+      <div class="regions-label">Serving clients in</div>
+      <div class="regions-flags">
+        <div class="region-item"><span class="flag">🇺🇸</span> USA</div>
+        <div class="regions-divider"></div>
+        <div class="region-item"><span class="flag">🇲🇽</span> Mexico</div>
+        <div class="regions-divider"></div>
+        <div class="region-item"><span class="flag">🇨🇦</span> Canada</div>
+        <div class="regions-divider"></div>
+        <div class="region-item"><span class="flag">🇵🇪</span> Peru</div>
+        <div class="regions-divider"></div>
+        <div class="region-item"><span class="flag">🇧🇴</span> Bolivia</div>
+      </div>
+      <div style="font-size:.82rem;color:var(--text-muted);">🌎 English &amp; Español</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <div class="section-label reveal">What We Do</div>
+          <h2 class="section-title reveal">Services Built <em>for Growth</em></h2>
+        </div>
+        <p class="section-sub reveal">Everything you need to grow online — done for you, by a team that understands markets across the Americas.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-icon">📱</div>
+          <h3 class="service-title">Social Media Management</h3>
+          <p class="service-desc">We build and execute tailored monthly strategies across your key platforms — keeping your brand visible, your audience engaged, and your growth on track in any market.</p>
+          <ul class="service-features">
+            <li class="service-feature">Custom content calendars</li>
+            <li class="service-feature">Instagram, Facebook &amp; more</li>
+            <li class="service-feature">Monthly performance reports</li>
+            <li class="service-feature">Community engagement</li>
+            <li class="service-feature">Paid ad support</li>
+          </ul>
+          <a href="#contact" class="service-link">Get Started →</a>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">02</div>
+          <div class="service-icon">💻</div>
+          <h3 class="service-title">Website Development</h3>
+          <p class="service-desc">From sleek portfolio sites to full e-commerce platforms, we craft fast, modern websites that look great and turn visitors into customers — wherever they are in the world.</p>
+          <ul class="service-features">
+            <li class="service-feature">Custom design &amp; development</li>
+            <li class="service-feature">Mobile-first &amp; responsive</li>
+            <li class="service-feature">SEO-optimized structure</li>
+            <li class="service-feature">Speed &amp; Core Web Vitals</li>
+            <li class="service-feature">Ongoing maintenance</li>
+          </ul>
+          <a href="#contact" class="service-link">Get Started →</a>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">03</div>
+          <div class="service-icon">🎬</div>
+          <h3 class="service-title">Content Creation</h3>
+          <p class="service-desc">Professional photo and video content that captures your brand story and stops the scroll — crafted to resonate with your specific audience, culture, and platform.</p>
+          <ul class="service-features">
+            <li class="service-feature">Brand photography &amp; video</li>
+            <li class="service-feature">Reels &amp; short-form content</li>
+            <li class="service-feature">Product &amp; event shoots</li>
+            <li class="service-feature">Scripted &amp; edited posts</li>
+            <li class="service-feature">Cross-platform formatting</li>
+          </ul>
+          <a href="#contact" class="service-link">Get Started →</a>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:.9rem;">
+        Not sure which service you need? <a href="#contact" style="color:var(--accent);font-weight:600;">Let's talk — we'll figure it out together. →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="portfolio-header">
+        <div>
+          <div class="section-label reveal">Our Work</div>
+          <h2 class="section-title reveal">Trusted by <em>Businesses Worldwide</em></h2>
+        </div>
+        <p class="section-sub reveal">From healthcare to hospitality, retail to e-commerce — we've helped businesses across the Americas grow their digital presence.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal">
+          <img src="/Photos/Solafire Photo Website.jpg" alt="Solafire Website Preview" class="portfolio-preview" loading="lazy" />
+          <div class="portfolio-card-top">
+            <div class="portfolio-logo">
+              <img src="https://logo.clearbit.com/solafire.org" alt="Solafire" onerror="this.style.display='none';this.parentElement.textContent='SF'" />
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Social Media</span>
+              <span class="portfolio-tag">Web Design</span>
+            </div>
+          </div>
+          <div class="portfolio-region">🇺🇸 🇲🇽 USA · Mexico</div>
+          <div class="portfolio-industry">Medical · Pulmonology</div>
+          <h3 class="portfolio-name">Solafire</h3>
+          <p class="portfolio-desc">Bilingual digital presence for a pulmonology practice serving patients on both sides of the US-Mexico border.</p>
+        </div>
+        <div class="portfolio-card reveal">
+          <img src="/Photos/Pollo Rico Photo Website (1).jpg" alt="El Pollo Rico Website Preview" class="portfolio-preview" loading="lazy" />
+          <div class="portfolio-card-top">
+            <div class="portfolio-logo">
+              <img src="https://logo.clearbit.com/pollosricos.com" alt="El Pollo Rico" onerror="this.style.display='none';this.parentElement.textContent='PR'" />
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Social Media</span>
+              <span class="portfolio-tag">Content</span>
+            </div>
+          </div>
+          <div class="portfolio-region">🇺🇸 USA</div>
+          <div class="portfolio-industry">Restaurant</div>
+          <h3 class="portfolio-name">El Pollo Rico</h3>
+          <p class="portfolio-desc">Vibrant social content and brand strategy for a beloved El Paso restaurant institution with a loyal local following.</p>
+        </div>
+        <div class="portfolio-card reveal">
+          <img src="/Photos/Pulmonary Health Center Photo Website.png" alt="Pulmonary Health Center Website Preview" class="portfolio-preview" loading="lazy" />
+          <div class="portfolio-card-top">
+            <div class="portfolio-logo">
+              <img src="https://logo.clearbit.com/topdoctors.mx" alt="Pulmonary Health Center" onerror="this.style.display='none';this.parentElement.textContent='PH'" />
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Social Media</span>
+              <span class="portfolio-tag">Content</span>
+            </div>
+          </div>
+          <div class="portfolio-region">🇺🇸 🇲🇽 USA · Mexico</div>
+          <div class="portfolio-industry">Healthcare</div>
+          <h3 class="portfolio-name">Pulmonary Health Center</h3>
+          <p class="portfolio-desc">Cross-border healthcare marketing driving patient awareness and building lasting trust across two markets.</p>
+        </div>
+        <div class="portfolio-card reveal">
+          <img src="/Photos/RV Park photo website.jpg" alt="EP Roadrunner RV Park Website Preview" class="portfolio-preview" loading="lazy" />
+          <div class="portfolio-card-top">
+            <div class="portfolio-logo">
+              <img src="https://logo.clearbit.com/elpasoroadrunnerrv.com" alt="EP Roadrunner RV" onerror="this.style.display='none';this.parentElement.textContent='RR'" />
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Web Design</span>
+              <span class="portfolio-tag">Social Media</span>
+            </div>
+          </div>
+          <div class="portfolio-region">🇺🇸 🇨🇦 USA · Canada</div>
+          <div class="portfolio-industry">RV Park · Hospitality</div>
+          <h3 class="portfolio-name">EP Roadrunner RV</h3>
+          <p class="portfolio-desc">Online brand building for a premier RV resort destination attracting travelers from across North America.</p>
+        </div>
+        <div class="portfolio-card reveal">
+          <img src="/Photos/Future strike photo website (1).jpg" alt="Future Strike Bowling Website Preview" class="portfolio-preview" loading="lazy" />
+          <div class="portfolio-card-top">
+            <div class="portfolio-logo" style="background:rgba(108,99,255,0.1);border-color:rgba(108,99,255,0.2);color:var(--accent);">FS</div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Branding</span>
+              <span class="portfolio-tag">Social Media</span>
+            </div>
+          </div>
+          <div class="portfolio-region">🇺🇸 USA</div>
+          <div class="portfolio-industry">Pro Shop · Retail</div>
+          <h3 class="portfolio-name">Future Strike Bowling</h3>
+          <p class="portfolio-desc">Retail brand launch and digital strategy for an El Paso bowling pro shop from the ground up.</p>
+        </div>
+        <div class="portfolio-card reveal">
+          <img src="/Photos/Top RV Parts Photo Website.jpg" alt="Top RV Parts Website Preview" class="portfolio-preview" loading="lazy" />
+          <div class="portfolio-card-top">
+            <div class="portfolio-logo">
+              <img src="https://logo.clearbit.com/toprvparts.com" alt="Top RV Parts" onerror="this.style.display='none';this.parentElement.textContent='TR'" />
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Web Dev</span>
+              <span class="portfolio-tag">E-commerce</span>
+            </div>
+          </div>
+          <div class="portfolio-region">🇺🇸 🇨🇦 USA · Canada</div>
+          <div class="portfolio-industry">E-commerce · Parts</div>
+          <h3 class="portfolio-name">Top RV Parts</h3>
+          <p class="portfolio-desc">E-commerce growth strategy and online store development for a national RV parts retailer serving North America.</p>
+        </div>
+        <div class="portfolio-card reveal">
+          <img src="/Photos/paws in heaven website photo.jpg" alt="Paws in Heaven Website Preview" class="portfolio-preview" loading="lazy" />
+          <div class="portfolio-card-top">
+            <div class="portfolio-logo">
+              <img src="https://logo.clearbit.com/pawinheaven.com" alt="Paws in Heaven" onerror="this.style.display='none';this.parentElement.textContent='PH'" />
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Social Media</span>
+              <span class="portfolio-tag">Content</span>
+            </div>
+          </div>
+          <div class="portfolio-region">🇺🇸 🇲🇽 USA · Mexico</div>
+          <div class="portfolio-industry">Pet Services</div>
+          <h3 class="portfolio-name">Paws in Heaven</h3>
+          <p class="portfolio-desc">Compassionate pet memorial services with bilingual digital presence connecting families across the US-Mexico border.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="#contact" class="btn-primary">Start Your Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR REACH -->
+  <section class="section" id="reach">
+    <div class="container">
+      <div class="section-label reveal">Global Reach</div>
+      <h2 class="section-title reveal">We Go Where <em>Your Business Goes</em></h2>
+      <p class="section-sub reveal">We're headquartered in El Paso, TX — but our clients span the Americas. From North America to South America, we know how to reach audiences across borders, cultures, and time zones.</p>
+
+      <div class="reach-grid">
+        <div class="reveal-left">
+          <div class="reach-map">
+            <div class="reach-dots">
+              <div class="reach-location">
+                <span class="flag">🇺🇸</span>
+                <span class="country">USA</span>
+                <span class="city">El Paso, TX</span>
+              </div>
+              <div class="reach-location">
+                <span class="flag">🇲🇽</span>
+                <span class="country">Mexico</span>
+                <span class="city">Ciudad Juárez</span>
+              </div>
+              <div class="reach-location">
+                <span class="flag">🇨🇦</span>
+                <span class="country">Canada</span>
+                <span class="city">North America</span>
+              </div>
+              <div class="reach-location">
+                <span class="flag">🇵🇪</span>
+                <span class="country">Peru</span>
+                <span class="city">South America</span>
+              </div>
+              <div class="reach-location">
+                <span class="flag">🇧🇴</span>
+                <span class="country">Bolivia</span>
+                <span class="city">South America</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reach-copy reveal-right">
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;margin-bottom:1rem;">No borders. No barriers.</h3>
+          <p style="color:var(--text-muted);line-height:1.75;margin-bottom:1.25rem;">Whether you're a local El Paso business, a Canadian hospitality brand, or a South American company looking to grow your digital footprint — we've done it. Our bilingual team and cross-cultural marketing experience means your message lands the right way in every market.</p>
+          <p style="color:var(--text-muted);line-height:1.75;margin-bottom:2rem;">We don't just translate content. We adapt strategy, tone, platform mix, and audience targeting to match the culture of wherever your customers are.</p>
+
+          <div class="reach-stat-grid">
+            <div class="reach-stat">
+              <div class="reach-stat-num">5+</div>
+              <div class="reach-stat-label">Countries served across the Americas</div>
+            </div>
+            <div class="reach-stat">
+              <div class="reach-stat-num">2</div>
+              <div class="reach-stat-label">Languages — English &amp; Español</div>
+            </div>
+            <div class="reach-stat">
+              <div class="reach-stat-num">100%</div>
+              <div class="reach-stat-label">Remote-capable, timezone-flexible</div>
+            </div>
+            <div class="reach-stat">
+              <div class="reach-stat-num">∞</div>
+              <div class="reach-stat-label">Room for new markets</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-label reveal">How It Works</div>
+      <h2 class="section-title reveal">Our <em>Process</em></h2>
+      <p class="section-sub reveal">From first call to launch — a clear, proven process that keeps you informed and in control every step of the way, regardless of where you're based.</p>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <span class="process-step-num">01</span>
+          <h3 class="process-step-title">Discovery Call</h3>
+          <p class="process-step-desc">We learn about your business, goals, and audience. No templates — every strategy starts with a real conversation.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-step-num">02</span>
+          <h3 class="process-step-title">Strategy &amp; Proposal</h3>
+          <p class="process-step-desc">We build a tailored roadmap and present a clear scope, timeline, and pricing — adapted for your specific market.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-step-num">03</span>
+          <h3 class="process-step-title">Creation &amp; Build</h3>
+          <p class="process-step-desc">Our team gets to work — designing, developing, shooting, or writing depending on your project and market.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-step-num">04</span>
+          <h3 class="process-step-title">Launch &amp; Grow</h3>
+          <p class="process-step-desc">We launch, monitor results, and iterate. Your growth is ongoing — and so is our partnership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-label reveal">Our Team</div>
+      <h2 class="section-title reveal">Two Minds, <em>One Mission</em></h2>
+      <p class="section-sub reveal">A tight-knit team with the combined skills of a full-service agency — and the personal attention of a dedicated partner.</p>
+      <div class="team-showcase reveal">
+        <img src="/Photos/Team Photo website (1).png" alt="El Paso Advertising Solutions team" loading="lazy" />
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal-left">
+          <div class="team-avatar">N</div>
+          <div class="team-name">Nolean Francisco</div>
+          <div class="team-role">Web Developer &amp; AI Specialist</div>
+          <p class="team-bio">Nolean builds the digital infrastructure behind every client's online presence. From custom websites to AI-powered automation, he brings technical precision and forward-thinking solutions to businesses across the Americas.</p>
+          <div class="team-skills">
+            <span class="team-skill">Web Development</span>
+            <span class="team-skill">AI &amp; Automation</span>
+            <span class="team-skill">UI/UX Design</span>
+            <span class="team-skill">Performance</span>
+          </div>
+        </div>
+        <div class="team-card reveal-right">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--accent-2),#ff8c5a);">C</div>
+          <div class="team-name">Carlos Terrazas</div>
+          <div class="team-role" style="color:var(--accent-2);">Marketing Director</div>
+          <p class="team-bio">Carlos drives strategy, client relationships, and campaign execution. His experience spanning the US, Mexico, Canada, and South America means every campaign is built with the right cultural context — bilingual, bi-cultural, and data-driven.</p>
+          <div class="team-skills">
+            <span class="team-skill">Brand Strategy</span>
+            <span class="team-skill">Client Relations</span>
+            <span class="team-skill">Campaign Planning</span>
+            <span class="team-skill">Paid Media</span>
+          </div>
+        </div>
+      </div>
+      <div class="team-together reveal">
+        <p>Together, Carlos and Nolean offer something rare: the <strong>creative strategy</strong> of a marketing director <em>and</em> the <strong>technical depth</strong> of a developer — under one roof, speaking your language, ready to take your brand anywhere.</p>
+        <a href="#contact" class="btn-primary" style="margin-top:.5rem;">Work With Us →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-label reveal">Get In Touch</div>
+      <h2 class="section-title reveal">Let's Build <em>Something Great</em></h2>
+      <p class="section-sub reveal" style="margin-bottom:3rem;">Tell us about your business — we'll get back to you within one business day. Usually faster.</p>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-detail">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value">
+                <a href={LINKS.mailto}>{CONTACT.email}</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-detail-label">WhatsApp</div>
+              <div class="contact-detail-value">
+                <a href={LINKS.whatsapp} target="_blank" rel="noopener">{CONTACT.whatsappDisplay}</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-detail-label">Headquarters</div>
+              <div class="contact-detail-value">El Paso, TX · Serving the Americas</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">⏱️</div>
+            <div>
+              <div class="contact-detail-label">Response Time</div>
+              <div class="contact-detail-value">Under 4 hours</div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href={SOCIAL.facebook} target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href={SOCIAL.instagram} target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+          <div style="margin-top:2.5rem;padding:1.5rem;background:var(--bg-2);border:1px solid var(--border);border-radius:12px;">
+            <div style="font-size:.8rem;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;">🌎 Americas-Wide</div>
+            <div style="font-size:.9rem;color:var(--text);">We work with clients in the USA, Mexico, Canada, Peru, Bolivia and beyond. <strong>English &amp; Español.</strong></div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal-right">
+          <form id="contact-form" novalidate>
+          <div id="form-fields">
+            <div class="contact-form-title">Send Us a Message</div>
+            <p class="contact-form-sub">Fill out the form and we'll be in touch shortly. We respond in both English and Español.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Name *</label>
+                <input type="text" id="f-name" name="name" required aria-required="true" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="f-email">Email *</label>
+                <input type="email" id="f-email" name="email" required aria-required="true" placeholder="your@email.com" autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-phone">Phone (optional)</label>
+                <input type="tel" id="f-phone" name="phone" placeholder="+1 (915) 000-0000" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="f-country">Your Country</label>
+                <select id="f-country" name="country" autocomplete="country-name">
+                  <option value="">— Select country —</option>
+                  <option>United States</option>
+                  <option>Mexico</option>
+                  <option>Canada</option>
+                  <option>Peru</option>
+                  <option>Bolivia</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-service">Service Needed</label>
+              <select id="f-service" name="service">
+                <option value="">— Select a service —</option>
+                <option>Social Media Management</option>
+                <option>Website Development</option>
+                <option>Content Creation</option>
+                <option>Full Package (All Three)</option>
+                <option>Other / Not Sure Yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="f-message">Message *</label>
+              <textarea id="f-message" name="message" required aria-required="true" placeholder="Tell us about your business and what you're looking for..."></textarea>
+            </div>
+            <p id="form-error" style="display:none;color:var(--accent-2);font-size:.85rem;margin-bottom:1rem;" role="alert" aria-live="polite"></p>
+            <!-- Honeypot spam field — hidden from users -->
+            <input type="text" id="f-gotcha" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+            <button class="form-submit" id="form-submit" type="submit">
+              Send Message →
+            </button>
+          </div>
+          </form>
+          <div class="form-success" id="form-success">
+            <div class="form-success-icon">✅</div>
+            <div class="form-success-title">Message Sent!</div>
+            <p class="form-success-sub">We'll get back to you within one business day.<br />Usually much faster — check your inbox!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="display:inline-flex;">
+            <div class="nav-logo-icon">EP</div>
+            EP Advertising Solutions
+          </a>
+          <p>A bilingual digital marketing agency helping businesses across the Americas grow their online presence.</p>
+          <div style="font-size:.82rem;color:var(--text-muted);">🇺🇸 🇲🇽 🇨🇦 🇵🇪 🇧🇴 &nbsp;English · Español</div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#reach">Our Reach</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Social Media</a></li>
+            <li><a href="#services">Web Development</a></li>
+            <li><a href="#services">Content Creation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+526563882009">{CONTACT.whatsappDisplay}</a></li>
+            <li><a href={LINKS.mailto}>{CONTACT.email}</a></li>
+            <li><span style="color:var(--text-muted)">El Paso, TX · Americas</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 El Paso Advertising Solutions. All rights reserved.</p>
+        <p style="font-size:.8rem;color:var(--text-muted);">Designed &amp; built with ❤️ in El Paso, TX 🤘</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href={LINKS.whatsapp} target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
   </main>
-  <Footer />
-</BaseLayout>
+
+  <!-- ===================================
+       JAVASCRIPT — is:inline is REQUIRED.
+       Without it, Astro bundles this as an
+       ES module, which breaks GSAP globals
+       and the onclick handlers above.
+  =================================== -->
+  <script is:inline>
+    // ===========================
+    // LOADER
+    // ===========================
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let progress = 0;
+    const loaderBar  = document.getElementById('loader-bar');
+    const loaderPct  = document.getElementById('loader-pct');
+    const loaderEl   = document.getElementById('loader');
+    const loaderLogo = document.querySelector('.loader-logo');
+    const form = document.getElementById('contact-form');
+
+    gsap.to(loaderLogo, { opacity: 1, duration: 0.5, delay: 0.2 });
+
+    const loaderInterval = setInterval(() => {
+      progress = Math.min(100, progress + Math.random() * 15);
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(loaderInterval);
+        loaderBar.style.width = '100%';
+        loaderPct.textContent = '100%';
+        setTimeout(() => {
+          gsap.to(loaderEl, {
+            yPercent: -100,
+            duration: 0.8,
+            ease: 'power3.inOut',
+            onComplete: () => {
+              loaderEl.style.display = 'none';
+              initAnimations();
+            }
+          });
+        }, 300);
+      } else {
+        loaderBar.style.width = progress + '%';
+        loaderPct.textContent = Math.floor(progress) + '%';
+      }
+    }, 80);
+
+    // ===========================
+    // LENIS SMOOTH SCROLL
+    // ===========================
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: !prefersReducedMotion,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // ===========================
+    // CURSOR
+    // ===========================
+    const dotWrap  = document.getElementById('cursor-dot-wrap');
+    const ringWrap = document.getElementById('cursor-ring-wrap');
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.addEventListener('mousemove', (e) => {
+        gsap.to(dotWrap,  { x: e.clientX, y: e.clientY, duration: 0.05 });
+        gsap.to(ringWrap, { x: e.clientX, y: e.clientY, duration: 0.25, ease: 'power2.out' });
+      });
+    }
+
+    // ===========================
+    // SCROLL PROGRESS BAR
+    // ===========================
+    const scrollBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      scrollBar.style.transform = `scaleX(${pct})`;
+    }, { passive: true });
+
+    // ===========================
+    // NAV SCROLL STATE + BACK TO TOP
+    // ===========================
+    const nav = document.getElementById('nav');
+    const btt = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+      btt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    btt.addEventListener('click', () => lenis.scrollTo(0));
+
+    // ===========================
+    // MOBILE NAV
+    // ===========================
+    const navToggle = document.getElementById('nav-toggle');
+    const navMobile = document.getElementById('nav-mobile');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMobile.classList.toggle('open');
+      const isOpen = navMobile.classList.contains('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navMobile.setAttribute('aria-hidden', String(!isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(l => {
+      l.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMobile.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMobile.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Analytics-ready helper. No-op until GA/GTM is configured.
+    function trackEvent(eventName, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, params);
+      }
+    }
+
+    // ===========================
+    // SMOOTH ANCHOR SCROLLING
+    // ===========================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const id = anchor.getAttribute('href').slice(1);
+        if (!id) {
+          e.preventDefault();
+          lenis.scrollTo(0, { duration: prefersReducedMotion ? 0 : 1.2 });
+          return;
+        }
+        const target = document.getElementById(id);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -80, duration: prefersReducedMotion ? 0 : 1.2 });
+        }
+      });
+    });
+
+    form?.addEventListener('submit', handleFormSubmit);
+
+    // ===========================
+    // ANIMATIONS (after loader)
+    // ===========================
+    function initAnimations() {
+      gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+      // Hero word reveal
+      gsap.to('.hero-title .word-inner', {
+        y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.1,
+      });
+
+      // Hero supporting elements
+      gsap.to(['#hero-eyebrow', '#hero-sub', '#hero-actions', '#hero-stats'], {
+        opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out', delay: 0.5,
+      });
+
+      // Counters
+      setTimeout(() => {
+        document.querySelectorAll('.count').forEach(el => {
+          const target = parseInt(el.dataset.target);
+          gsap.to({ val: 0 }, {
+            val: target, duration: 1.5, ease: 'power2.out', delay: 0.8,
+            onUpdate: function () { el.textContent = Math.round(this.targets()[0].val); }
+          });
+        });
+      }, 600);
+
+      // Generic reveals
+      gsap.utils.toArray('.reveal').forEach((el, i) => {
+        gsap.to(el, {
+          opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+          delay: (i % 4) * 0.08,
+        });
+      });
+
+      gsap.utils.toArray('.reveal-left').forEach(el => {
+        gsap.to(el, {
+          opacity: 1, x: 0, duration: 0.9, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+        });
+      });
+
+      gsap.utils.toArray('.reveal-right').forEach(el => {
+        gsap.to(el, {
+          opacity: 1, x: 0, duration: 0.9, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+        });
+      });
+
+      // Service cards stagger
+      gsap.utils.toArray('.service-card').forEach((card, i) => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(40px)';
+        gsap.to(card, {
+          opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: { trigger: '#services .services-grid', start: 'top 80%' },
+          delay: i * 0.15,
+        });
+      });
+
+      // Portfolio cards stagger
+      gsap.utils.toArray('.portfolio-card').forEach((card, i) => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(30px)';
+        gsap.to(card, {
+          opacity: card.classList.contains('coming-soon') ? 0.55 : 1,
+          y: 0, duration: 0.65, ease: 'power2.out',
+          scrollTrigger: { trigger: '#portfolio .portfolio-grid', start: 'top 80%' },
+          delay: i * 0.1,
+        });
+      });
+
+      // Reach location cards stagger
+      gsap.utils.toArray('.reach-location').forEach((loc, i) => {
+        loc.style.opacity = 0;
+        loc.style.transform = 'translateY(20px)';
+        gsap.to(loc, {
+          opacity: 1, y: 0, duration: 0.5, ease: 'power2.out',
+          scrollTrigger: { trigger: '#reach .reach-map', start: 'top 80%' },
+          delay: i * 0.1,
+        });
+      });
+
+      // Process steps
+      gsap.utils.toArray('.process-step').forEach((step, i) => {
+        step.style.opacity = 0;
+        step.style.transform = 'translateY(30px)';
+        gsap.to(step, {
+          opacity: 1, y: 0, duration: 0.65, ease: 'power2.out',
+          scrollTrigger: { trigger: '#process .process-steps', start: 'top 80%' },
+          delay: i * 0.12,
+        });
+      });
+
+      // Parallax orbs
+      gsap.to('.orb-1', { y: -120, scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: 2 } });
+      gsap.to('.orb-2', { y: -80,  scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: 3 } });
+
+      // Nav active state on scroll
+      document.querySelectorAll('section[id]').forEach(section => {
+        ScrollTrigger.create({
+          trigger: section, start: 'top 60%', end: 'bottom 60%',
+          onEnter:     () => setActiveNav(section.id),
+          onEnterBack: () => setActiveNav(section.id),
+        });
+      });
+    }
+
+    function setActiveNav(id) {
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + id ? 'var(--text)' : '';
+      });
+    }
+
+    // ===========================
+    // FORM SUBMIT
+    // Replace the fake await below with the
+    // real Formspree fetch (see DEPLOY.md)
+    // ===========================
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const name    = document.getElementById('f-name').value.trim();
+      const email   = document.getElementById('f-email').value.trim();
+      const message = document.getElementById('f-message').value.trim();
+      const honeypot = document.getElementById('f-gotcha').value.trim();
+      const errorEl = document.getElementById('form-error');
+      const requiredFields = [['f-name', name], ['f-email', email], ['f-message', message]];
+
+      errorEl.style.display = 'none';
+      errorEl.textContent = '';
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      requiredFields.forEach(([id]) => {
+        const input = document.getElementById(id);
+        input.removeAttribute('aria-invalid');
+      });
+
+      if (honeypot) {
+        trackEvent('form_submit_blocked', { source: 'contact_form', reason: 'honeypot' });
+        return;
+      }
+
+      if (!name || !email || !message) {
+        requiredFields.forEach(([id, val]) => {
+          if (!val) {
+            const el = document.getElementById(id);
+            gsap.fromTo(el, { x: -8 }, {
+              x: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)',
+              keyframes: [{ x: -8 }, { x: 8 }, { x: -5 }, { x: 5 }, { x: 0 }]
+            });
+            el.style.borderColor = 'var(--accent-2)';
+            el.setAttribute('aria-invalid', 'true');
+            setTimeout(() => el.style.borderColor = '', 2000);
+          }
+        });
+        errorEl.textContent = 'Please fill out the required fields before sending.';
+        errorEl.style.display = 'block';
+        trackEvent('form_error', { type: 'required_fields' });
+        return;
+      }
+
+      if (!emailRegex.test(email)) {
+        const emailInput = document.getElementById('f-email');
+        emailInput.style.borderColor = 'var(--accent-2)';
+        emailInput.setAttribute('aria-invalid', 'true');
+        setTimeout(() => emailInput.style.borderColor = '', 2000);
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        trackEvent('form_error', { type: 'invalid_email' });
+        return;
+      }
+
+      const btn = document.getElementById('form-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      let timeoutId;
+
+      try {
+        const controller = new AbortController();
+        timeoutId = setTimeout(() => controller.abort(), 10000);
+        const response = await fetch('https://formspree.io/f/xreokzly', {
+          method: 'POST',
+          signal: controller.signal,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            name:    document.getElementById('f-name').value,
+            email:   document.getElementById('f-email').value,
+            phone:   document.getElementById('f-phone').value,
+            country: document.getElementById('f-country').value,
+            service: document.getElementById('f-service').value,
+            message: document.getElementById('f-message').value,
+          }),
+        });
+        if (!response.ok) throw new Error('Formspree error');
+        trackEvent('form_submit_success', { source: 'contact_form' });
+        form?.reset();
+
+        gsap.to('#form-fields', {
+          opacity: 0, y: -20, duration: 0.4,
+          onComplete: () => {
+            document.getElementById('form-fields').style.display = 'none';
+            const success = document.getElementById('form-success');
+            success.classList.add('show');
+            gsap.from(success, { opacity: 0, y: 20, duration: 0.5 });
+          }
+        });
+      } catch (err) {
+        const timedOut = err && err.name === 'AbortError';
+        trackEvent('form_submit_error', {
+          source: 'contact_form',
+          error_type: timedOut ? 'timeout' : 'server_or_network'
+        });
+        btn.textContent = 'Could not send. Please try again or email us directly.';
+        btn.disabled = false;
+        btn.style.background = 'var(--accent-2)';
+        errorEl.textContent = timedOut
+          ? 'The request timed out. Please try again in a moment.'
+          : 'Network issue or server error. Please try again in a moment.';
+        errorEl.style.display = 'block';
+        setTimeout(() => {
+          btn.textContent = 'Send Message →';
+          btn.style.background = '';
+        }, 3000);
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    }
+  </script>
+</body>
+</html>

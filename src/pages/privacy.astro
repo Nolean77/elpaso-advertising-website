@@ -1,210 +1,258 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-const canonicalUrl = new URL('/privacy', 'https://elpasoadvertisingsolutions.com').href;
+// TODO: Have this reviewed by a legal professional before launch
+import { CONTACT, LINKS } from '../data/site';
+
+const pageTitle = 'Privacy Policy — El Paso Advertising Solutions';
+const pageDescription = 'Privacy Policy for El Paso Advertising Solutions. Learn how we collect, use, and protect your information.';
 ---
 
-<BaseLayout
-  title="Privacy Policy — El Paso Advertising Solutions"
-  description="Privacy Policy for El Paso Advertising Solutions. Learn how we collect, use, and protect your information."
-  canonicalUrl={canonicalUrl}
->
-  <!-- Simple nav bar -->
-  <nav class="site-nav" aria-label="Site navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo"><span>EP</span> Advertising Solutions</a>
-      <a href="/" class="nav-back">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-          <path d="M11.5 7h-9M6 3.5L2.5 7 6 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Back to Home
-      </a>
-    </div>
-  </nav>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@0,400;0,500;0,600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg:           #07080f;
+        --bg-card:      #0d0f1e;
+        --border:       rgba(255,255,255,0.07);
+        --text:         #e2e8f0;
+        --text-muted:   #94a3b8;
+        --text-subtle:  #566070;
+        --accent:       #06b6d4;
+        --amber:        #f59e0b;
+        --font-display: 'Bricolage Grotesque', sans-serif;
+        --font-body:    'Plus Jakarta Sans', sans-serif;
+        --max-w:        760px;
+        --nav-height:   72px;
+      }
 
-  <main class="privacy-page">
-    <header class="page-header">
-      <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: January 1, 2026</p>
-    </header>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <section class="privacy-section">
-      <h2>Information We Collect</h2>
-      <p>
-        We collect information you voluntarily provide to us when you fill out our contact form, including your name, email address, phone number, and any message content you submit. We do not collect any information automatically beyond standard web server logs.
-      </p>
-      <p>
-        We do not use cookies for tracking purposes, and we do not collect any sensitive personal information such as financial data, government identification numbers, or health information.
-      </p>
-    </section>
+      html { scroll-behavior: smooth; font-size: 16px; }
 
-    <section class="privacy-section">
-      <h2>How We Use Your Information</h2>
-      <p>
-        The information you provide through our contact form is used solely to respond to your inquiry and communicate with you about our digital marketing services. We will not sell, rent, or share your personal information with third parties for marketing purposes.
-      </p>
-      <p>
-        We may use your contact information to follow up on your inquiry, provide you with a consultation, or send you information relevant to the services you requested. You may opt out of any communications at any time by replying to any email with "unsubscribe" in the subject line.
-      </p>
-    </section>
+      body {
+        font-family: var(--font-body);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
 
-    <section class="privacy-section">
-      <h2>Contact Form Data</h2>
-      <p>
-        Our contact form is powered by Web3Forms (<a href="https://web3forms.com" target="_blank" rel="noopener noreferrer">web3forms.com</a>), a third-party form submission service. When you submit our contact form, your data is transmitted to Web3Forms' servers and then forwarded to our email address. Please review <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">Web3Forms' privacy policy</a> for information on how they handle your data.
-      </p>
-      <p>
-        We retain contact form submissions in our email inbox for as long as necessary to respond to your inquiry and maintain business records. You may request deletion of your data at any time by contacting us directly.
-      </p>
-    </section>
+      h1, h2, h3 {
+        font-family: var(--font-display);
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
 
-    <section class="privacy-section">
-      <h2>Third-Party Services</h2>
-      <p>
-        Our website uses Google Fonts for typography, which may result in requests to Google's servers when you visit our site. Please refer to Google's privacy policy for information on how they handle these requests.
-      </p>
-      <p>
-        Our portfolio section displays company logos sourced from Clearbit's logo API. These are publicly available logos and no personal data is transmitted in this process.
-      </p>
-      <p>
-        We maintain social media profiles on Facebook and Instagram. If you interact with us through those platforms, their respective privacy policies apply to that data.
-      </p>
-    </section>
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
 
-    <section class="privacy-section">
-      <h2>Contact Us</h2>
-      <p>
-        If you have any questions about this Privacy Policy or how we handle your personal information, please contact us:
-      </p>
-      <p>
-        <strong>El Paso Advertising Solutions</strong><br />
-        El Paso, TX · Border Region<br />
-        Email: <a href="mailto:carlos@elpasoadvertisingsolutions.com">carlos@elpasoadvertisingsolutions.com</a><br />
-        WhatsApp: <a href="https://wa.me/+526563882009" target="_blank" rel="noopener noreferrer">+52 656 388 2009</a>
-      </p>
-    </section>
+      /* ── Nav bar ── */
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(7,8,15,0.92);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        height: var(--nav-height);
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+      }
 
-    <footer class="page-footer">
-      <p>© {new Date().getFullYear()} El Paso Advertising Solutions. All rights reserved.</p>
-      <a href="/">← Back to Home</a>
-    </footer>
-  </main>
-</BaseLayout>
+      .nav-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-<style>
-  /* ── Nav ── */
-  .site-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(7,8,15,0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    height: var(--nav-height);
-    display: flex;
-    align-items: center;
-    padding: 0 1.5rem;
-  }
+      .nav-logo {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
 
-  .nav-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+      .nav-logo span { color: var(--accent); }
 
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #f1f5f9;
-    letter-spacing: -0.02em;
-  }
+      .nav-back {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: color 0.2s;
+      }
 
-  .nav-logo span { color: var(--accent); }
+      .nav-back:hover { color: var(--accent); text-decoration: none; }
 
-  .nav-back {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: color 0.2s;
-  }
+      /* ── Main content ── */
+      .privacy-page {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+      }
 
-  .nav-back:hover { color: var(--accent); }
+      .page-header {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
 
-  /* ── Content ── */
-  .privacy-page {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem 6rem;
-  }
+      .page-header h1 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 0.75rem;
+      }
 
-  .page-header {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-  }
+      .last-updated {
+        font-size: 0.85rem;
+        color: var(--text-subtle);
+      }
 
-  .page-header h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.025em;
-  }
+      /* ── Sections ── */
+      .privacy-section {
+        margin-bottom: 2.5rem;
+      }
 
-  .last-updated {
-    font-size: 0.85rem;
-    color: var(--text-subtle);
-  }
+      .privacy-section h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.875rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(6,182,212,0.15);
+      }
 
-  .privacy-section {
-    margin-bottom: 2.5rem;
-  }
+      .privacy-section p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 0.75rem;
+      }
 
-  .privacy-section h2 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.875rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(6,182,212,0.15);
-    letter-spacing: -0.02em;
-  }
+      .privacy-section p:last-child { margin-bottom: 0; }
 
-  .privacy-section p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 0.75rem;
-  }
+      /* ── Footer ── */
+      .page-footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
 
-  .privacy-section p:last-child { margin-bottom: 0; }
+      .page-footer p {
+        font-size: 0.78rem;
+        color: var(--text-subtle);
+      }
 
-  .privacy-section a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+      .page-footer a {
+        font-size: 0.78rem;
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Simple nav bar -->
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo"><span>EP</span> Advertising Solutions</a>
+        <a href="/" class="nav-back">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M11.5 7h-9M6 3.5L2.5 7 6 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </nav>
 
-  .privacy-section a:hover { color: #22d3ee; }
+    <main class="privacy-page">
+      <header class="page-header">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: March 31, 2026</p>
+      </header>
 
-  .page-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
+      <section class="privacy-section">
+        <h2>Information We Collect</h2>
+        <p>
+          We collect information you voluntarily provide to us when you fill out our contact form, including your name, email address, phone number, and any message content you submit. We do not collect any information automatically beyond standard web server logs.
+        </p>
+        <p>
+          We do not use cookies for tracking purposes, and we do not collect any sensitive personal information such as financial data, government identification numbers, or health information.
+        </p>
+      </section>
 
-  .page-footer p   { font-size: 0.78rem; color: var(--text-subtle); }
-  .page-footer a   { font-size: 0.78rem; color: var(--accent); }
-</style>
+      <section class="privacy-section">
+        <h2>How We Use Your Information</h2>
+        <p>
+          The information you provide through our contact form is used solely to respond to your inquiry and communicate with you about our digital marketing services. We will not sell, rent, or share your personal information with third parties for marketing purposes.
+        </p>
+        <p>
+          We may use your contact information to follow up on your inquiry, provide you with a consultation, or send you information relevant to the services you requested. You may opt out of any communications at any time by replying to any email with "unsubscribe" in the subject line.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2>Contact Form Data</h2>
+        <p>
+          Our contact form is powered by Web3Forms (web3forms.com), a third-party form submission service. When you submit our contact form, your data is transmitted to Web3Forms' servers and then forwarded to our email address. Please review Web3Forms' privacy policy at <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">web3forms.com/privacy</a> for information on how they handle your data.
+        </p>
+        <p>
+          We retain contact form submissions in our email inbox for as long as necessary to respond to your inquiry and maintain business records. You may request deletion of your data at any time by contacting us directly.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2>Third-Party Services</h2>
+        <p>
+          Our website uses Google Fonts for typography, which may result in requests to Google's servers when you visit our site. Please refer to Google's privacy policy for information on how they handle these requests.
+        </p>
+        <p>
+          Our portfolio section displays company logos sourced from Clearbit's logo API (logo.clearbit.com). These are publicly available logos and no personal data is transmitted in this process.
+        </p>
+        <p>
+          We maintain social media profiles on Facebook and Instagram. If you interact with us through those platforms, their respective privacy policies apply to that data.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2>Contact Us</h2>
+        <p>
+          If you have any questions about this Privacy Policy or how we handle your personal information, please contact us:
+        </p>
+        <p>
+          <strong>El Paso Advertising Solutions</strong><br />
+          El Paso, TX · Border Region<br />
+          Email: <a href={LINKS.mailto}>{CONTACT.email}</a><br />
+          WhatsApp: <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">{CONTACT.whatsappDisplay}</a>
+        </p>
+      </section>
+
+      <footer class="page-footer">
+        <p>© {new Date().getFullYear()} El Paso Advertising Solutions. All rights reserved.</p>
+        <a href="/">← Back to Home</a>
+      </footer>
+    </main>
+  </body>
+</html>
