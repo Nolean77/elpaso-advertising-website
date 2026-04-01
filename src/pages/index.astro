@@ -838,6 +838,21 @@ import { CONTACT, LINKS, SOCIAL } from '../data/site';
       gap: 1.5rem;
       margin-top: 3.5rem;
     }
+    .team-showcase {
+      margin-top: 2rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    }
+    .team-showcase img {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
     .team-card {
       background: var(--bg-3);
       border: 1px solid var(--border);
@@ -859,18 +874,6 @@ import { CONTACT, LINKS, SOCIAL } from '../data/site';
       transition: transform 0.4s ease;
     }
     .team-card:hover::before { transform: scaleX(1); }
-    .team-photo-wrap {
-      margin-bottom: 1.5rem;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .team-photo-wrap img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      display: block;
-    }
     .team-avatar {
       width: 64px; height: 64px;
       border-radius: 16px;
@@ -1678,11 +1681,11 @@ import { CONTACT, LINKS, SOCIAL } from '../data/site';
       <div class="section-label reveal">Our Team</div>
       <h2 class="section-title reveal">Two Minds, <em>One Mission</em></h2>
       <p class="section-sub reveal">A tight-knit team with the combined skills of a full-service agency — and the personal attention of a dedicated partner.</p>
+      <div class="team-showcase reveal">
+        <img src="/Photos/Team Photo website (1).png" alt="El Paso Advertising Solutions team" loading="lazy" />
+      </div>
       <div class="team-grid">
         <div class="team-card reveal-left">
-          <div class="team-photo-wrap">
-            <img src="/Photos/Team Photo website (1).png" alt="El Paso Advertising Solutions Team" loading="lazy" />
-          </div>
           <div class="team-avatar">N</div>
           <div class="team-name">Nolean Francisco</div>
           <div class="team-role">Web Developer &amp; AI Specialist</div>
