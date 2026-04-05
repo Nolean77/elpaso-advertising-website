@@ -1,9 +1,29 @@
 ---
 // El Paso Advertising Solutions — index.astro
+import { Image } from 'astro:assets';
 import { CONTACT, LINKS, SOCIAL } from '../data/site';
+import futureStrikePhoto from '../assets/photos/future-strike-photo-website-1.jpg';
+import pawsInHeavenPhoto from '../assets/photos/paws-in-heaven-website-photo.jpg';
+import pawsInHeavenLogo from '../assets/logos/paws-in-heaven-logo.svg';
+import polloRicoPhoto from '../assets/photos/pollo-rico-photo-website-1.jpg';
+import polloRicoLogo from '../assets/logos/pollo-rico-logo.svg';
+import pulmonaryHealthCenterPhoto from '../assets/photos/pulmonary-health-center-photo-website.png';
+import pulmonaryHealthLogo from '../assets/logos/pulmonary-health-logo.svg';
+import roadrunnerRvLogo from '../assets/logos/roadrunner-rv-logo.svg';
+import rvParkPhoto from '../assets/photos/rv-park-photo-website.jpg';
+import solafireLogo from '../assets/logos/solafire-logo.svg';
+import solafirePhoto from '../assets/photos/solafire-photo-website.jpg';
+import teamPhoto from '../assets/photos/team-photo-website-1.png';
+import topRvPartsLogo from '../assets/logos/top-rv-parts-logo.svg';
+import topRvPartsPhoto from '../assets/photos/top-rv-parts-photo-website.jpg';
 
 // Main landing page with inline CSS/JS for a single-file render.
 const siteUrl = 'https://elpasoadvertisingsolutions.com/';
+const pageTitle = 'El Paso Advertising Solutions | Digital Marketing & Web Design';
+const pageDescription = 'A bilingual digital marketing agency helping businesses across the Americas grow online — social media management, web design, and content creation.';
+const ogTitle = 'El Paso Advertising Solutions';
+const ogDescription = 'Your Business, Amplified Online. A bilingual digital marketing agency serving clients across the Americas.';
+const ogImage = `${siteUrl}og-image.png`;
 const structuredData = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -28,18 +48,24 @@ const structuredData = JSON.stringify({
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Paso Advertising Solutions | Digital Marketing & Web Design</title>
-  <meta name="description" content="A bilingual digital marketing agency helping businesses across the Americas grow online — social media management, web design, and content creation." />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
   <meta name="keywords" content="El Paso marketing, digital marketing agency, social media management, web design, content creation, Latin America marketing, bilingual marketing, Canada marketing" />
-  <meta property="og:title" content="El Paso Advertising Solutions" />
-  <meta property="og:description" content="Your Business, Amplified Online. A bilingual digital marketing agency serving clients across the Americas." />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="El Paso Advertising Solutions branded social preview graphic" />
   <meta property="og:url" content={siteUrl} />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="El Paso Advertising Solutions" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="El Paso Advertising Solutions" />
-  <meta name="twitter:description" content="Your Business, Amplified Online. A bilingual digital marketing agency serving clients across the Americas." />
+  <meta name="twitter:title" content={ogTitle} />
+  <meta name="twitter:description" content={ogDescription} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content="El Paso Advertising Solutions branded social preview graphic" />
   <link rel="canonical" href={siteUrl} />
   <meta name="theme-color" content="#6c63ff" />
   <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
@@ -56,7 +82,7 @@ const structuredData = JSON.stringify({
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TQVQTG67"></script>
@@ -92,7 +118,7 @@ const structuredData = JSON.stringify({
       --border: rgba(108, 99, 255, 0.15);
       --glow: rgba(108, 99, 255, 0.3);
       --font-body: 'Inter', sans-serif;
-      --font-display: 'Syne', sans-serif;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
       --max-w: 1200px;
       --radius: 16px;
       --nav-h: 72px;
@@ -240,6 +266,25 @@ const structuredData = JSON.stringify({
     }
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-login {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1.1rem;
+      border: 1px solid rgba(108, 99, 255, 0.45);
+      border-radius: 8px;
+      color: var(--text) !important;
+      background: rgba(108, 99, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-login::after { display: none !important; }
+    .nav-login:hover {
+      background: rgba(108, 99, 255, 0.18);
+      border-color: rgba(108, 99, 255, 0.8);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(108, 99, 255, 0.2);
+    }
     .nav-cta {
       padding: 0.5rem 1.25rem;
       background: var(--accent);
@@ -259,44 +304,111 @@ const structuredData = JSON.stringify({
     /* Mobile nav toggle */
     .nav-toggle {
       display: none;
-      flex-direction: column;
-      gap: 5px;
+      align-items: center;
+      justify-content: center;
       padding: 8px;
       cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--text);
+      transition: color 0.2s;
     }
-    .nav-toggle span {
-      display: block;
-      width: 22px; height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
+    .nav-toggle:hover { color: var(--accent); }
+    .nav-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.3s ease;
     }
-    .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-toggle.active span:nth-child(2) { opacity: 0; }
-    .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-toggle.active svg {
+      transform: rotate(90deg);
+    }
 
     .nav-mobile {
-      display: none;
       position: fixed;
-      inset: 0;
+      left: 0;
+      right: 0;
       top: var(--nav-h);
       background: rgba(8,8,16,0.97);
       backdrop-filter: blur(20px);
-      z-index: 999;
+      z-index: 998;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 2rem;
+      padding: 0 2rem;
+      max-height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      visibility: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .nav-mobile.open { display: flex; }
+    .nav-mobile.open {
+      max-height: calc(100vh - var(--nav-h));
+      padding: 2rem;
+      pointer-events: auto;
+      visibility: visible;
+    }
     .nav-mobile a {
       font-family: var(--font-display);
       font-size: 2rem;
       font-weight: 800;
       color: var(--text-muted);
       transition: color 0.2s;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    .nav-mobile.open a {
+      animation: slideInDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .nav-mobile.open a:nth-child(1) { animation-delay: 0.05s; }
+    .nav-mobile.open a:nth-child(2) { animation-delay: 0.1s; }
+    .nav-mobile.open a:nth-child(3) { animation-delay: 0.15s; }
+    .nav-mobile.open a:nth-child(4) { animation-delay: 0.2s; }
+    .nav-mobile.open a:nth-child(5) { animation-delay: 0.25s; }
+    .nav-mobile.open a:nth-child(6) { animation-delay: 0.3s; }
+    .nav-mobile.open a:nth-child(7) { animation-delay: 0.35s; }
+    @keyframes slideInDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     .nav-mobile a:hover { color: var(--text); }
+    .nav-mobile-login {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 220px;
+      padding: 0.9rem 1.5rem;
+      border: 1px solid rgba(108, 99, 255, 0.45);
+      border-radius: 12px;
+      background: rgba(108, 99, 255, 0.12);
+      color: var(--text) !important;
+      transition: background 0.2s, border-color 0.2s !important;
+    }
+    .nav-mobile-login:hover {
+      background: rgba(108, 99, 255, 0.2) !important;
+      border-color: rgba(108, 99, 255, 0.7) !important;
+    }
+    .nav-mobile-overlay {
+      position: fixed;
+      inset: 0;
+      top: var(--nav-h);
+      background: rgba(0, 0, 0, 0);
+      z-index: 997;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-mobile-overlay.active {
+      opacity: 0.4;
+      pointer-events: auto;
+    }
 
     /* ===========================
        HERO
@@ -311,6 +423,42 @@ const structuredData = JSON.stringify({
       z-index: 1;
       max-width: var(--max-w);
       margin: 0 auto;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #0a0a1a 0%, #0f172a 50%, #0a0a1a 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.08) 30%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
     }
     .hero-eyebrow {
       display: inline-flex;
@@ -348,6 +496,20 @@ const structuredData = JSON.stringify({
       letter-spacing: -0.03em;
       max-width: 900px;
       margin-bottom: 1.75rem;
+      position: relative;
+    }
+    .hero-title::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      transform: translateY(-50%);
+      background: radial-gradient(ellipse 500px 200px at center, rgba(139, 92, 246, 0.25) 0%, rgba(99, 102, 241, 0.12) 40%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: -1;
     }
     .hero-title .word { display: inline-block; overflow: hidden; }
     .hero-title .word-inner { display: inline-block; transform: translateY(110%); }
@@ -706,19 +868,35 @@ const structuredData = JSON.stringify({
       padding: 2rem;
       position: relative;
       overflow: hidden;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
       cursor: default;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-    .portfolio-card:hover { background: #161630; }
+    .portfolio-card:hover { 
+      background: #161630; 
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(108, 99, 255, 0.2);
+    }
     .portfolio-preview {
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 4 / 3;
+      height: auto;
       object-fit: cover;
+      object-position: center;
+      display: block;
       border-radius: 10px;
       margin-bottom: 1.25rem;
       border: 1px solid var(--border);
+      background: #101022;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
+    .preview-solafire { object-position: 50% 28%; }
+    .preview-pollo { object-position: 50% 42%; }
+    .preview-pulmonary { object-position: 50% 30%; }
+    .preview-rvpark { object-position: 50% 40%; }
+    .preview-futurestrike { object-position: 50% 34%; }
+    .preview-toprv { object-position: 50% 36%; }
+    .preview-paws { object-position: 50% 30%; }
     .portfolio-card:hover .portfolio-preview {
       transform: scale(1.02);
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
@@ -744,16 +922,59 @@ const structuredData = JSON.stringify({
       overflow: hidden;
     }
     .portfolio-logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 9px; }
-    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .portfolio-tag {
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
       border-radius: 100px;
-      background: rgba(108,99,255,0.1);
-      border: 1px solid rgba(108,99,255,0.2);
+      background: rgba(108, 99, 255, 0.15);
+      border: 1px solid rgba(108, 99, 255, 0.35);
       color: var(--accent);
       letter-spacing: 0.05em;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .portfolio-tag:hover {
+      background: rgba(108, 99, 255, 0.25);
+      border-color: rgba(108, 99, 255, 0.6);
+      transform: scale(1.05);
+    }
+    .portfolio-tag.tag-design {
+      background: rgba(67, 233, 123, 0.15);
+      border-color: rgba(67, 233, 123, 0.35);
+      color: var(--accent-3);
+    }
+    .portfolio-tag.tag-design:hover {
+      background: rgba(67, 233, 123, 0.25);
+      border-color: rgba(67, 233, 123, 0.6);
+    }
+    .portfolio-tag.tag-content {
+      background: rgba(255, 101, 132, 0.15);
+      border-color: rgba(255, 101, 132, 0.35);
+      color: var(--accent-2);
+    }
+    .portfolio-tag.tag-content:hover {
+      background: rgba(255, 101, 132, 0.25);
+      border-color: rgba(255, 101, 132, 0.6);
+    }
+    .portfolio-tag.tag-branding {
+      background: rgba(255, 193, 7, 0.15);
+      border-color: rgba(255, 193, 7, 0.35);
+      color: #ffc107;
+    }
+    .portfolio-tag.tag-branding:hover {
+      background: rgba(255, 193, 7, 0.25);
+      border-color: rgba(255, 193, 7, 0.6);
+    }
+    .portfolio-tag.tag-ecommerce {
+      background: rgba(156, 39, 176, 0.15);
+      border-color: rgba(156, 39, 176, 0.35);
+      color: #ce93d8;
+    }
+    .portfolio-tag.tag-ecommerce:hover {
+      background: rgba(156, 39, 176, 0.25);
+      border-color: rgba(156, 39, 176, 0.6);
     }
     .portfolio-region {
       display: inline-flex;
@@ -1259,6 +1480,14 @@ const structuredData = JSON.stringify({
       .nav-toggle { display: flex; }
       .team-grid { grid-template-columns: 1fr; }
       .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-preview { aspect-ratio: 5 / 4; }
+      .preview-solafire { object-position: 50% 24%; }
+      .preview-pollo { object-position: 50% 38%; }
+      .preview-pulmonary { object-position: 50% 26%; }
+      .preview-rvpark { object-position: 50% 36%; }
+      .preview-futurestrike { object-position: 50% 30%; }
+      .preview-toprv { object-position: 50% 32%; }
+      .preview-paws { object-position: 50% 26%; }
       .services-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
@@ -1338,12 +1567,20 @@ const structuredData = JSON.stringify({
       <li><a href="#reach">Our Reach</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#team">Team</a></li>
+      <li><a href="https://portal.elpasoadvertisingsolutions.com" class="nav-login" target="_blank" rel="noopener">Login</a></li>
       <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-mobile">
-      <span></span><span></span><span></span>
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6L21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 12L21 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 18L21 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
     </button>
   </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="nav-mobile-overlay" id="nav-mobile-overlay" aria-hidden="true"></div>
 
   <!-- MOBILE NAV -->
   <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
@@ -1352,6 +1589,7 @@ const structuredData = JSON.stringify({
     <a href="#reach" class="mobile-link">Our Reach</a>
     <a href="#process" class="mobile-link">Process</a>
     <a href="#team" class="mobile-link">Team</a>
+    <a href="https://portal.elpasoadvertisingsolutions.com" class="mobile-link nav-mobile-login" target="_blank" rel="noopener">Login</a>
     <a href="#contact" class="mobile-link">Contact</a>
   </div>
 
@@ -1517,14 +1755,14 @@ const structuredData = JSON.stringify({
       </div>
       <div class="portfolio-grid">
         <div class="portfolio-card reveal">
-          <img src="/Photos/Solafire Photo Website.jpg" alt="Solafire Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={solafirePhoto} alt="Solafire Website Preview" class="portfolio-preview preview-solafire" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
-              <img src="https://logo.clearbit.com/solafire.org" alt="Solafire" onerror="this.style.display='none';this.parentElement.textContent='SF'" />
+              <Image src={solafireLogo} alt="Solafire" width={44} height={44} loading="lazy" />
             </div>
             <div class="portfolio-tags">
               <span class="portfolio-tag">Social Media</span>
-              <span class="portfolio-tag">Web Design</span>
+              <span class="portfolio-tag tag-design">Web Design</span>
             </div>
           </div>
           <div class="portfolio-region">🇺🇸 🇲🇽 USA · Mexico</div>
@@ -1533,14 +1771,14 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Bilingual digital presence for a pulmonology practice serving patients on both sides of the US-Mexico border.</p>
         </div>
         <div class="portfolio-card reveal">
-          <img src="/Photos/Pollo Rico Photo Website (1).jpg" alt="El Pollo Rico Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={polloRicoPhoto} alt="El Pollo Rico Website Preview" class="portfolio-preview preview-pollo" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
-              <img src="https://logo.clearbit.com/pollosricos.com" alt="El Pollo Rico" onerror="this.style.display='none';this.parentElement.textContent='PR'" />
+              <Image src={polloRicoLogo} alt="El Pollo Rico" width={44} height={44} loading="lazy" />
             </div>
             <div class="portfolio-tags">
               <span class="portfolio-tag">Social Media</span>
-              <span class="portfolio-tag">Content</span>
+              <span class="portfolio-tag tag-content">Content</span>
             </div>
           </div>
           <div class="portfolio-region">🇺🇸 USA</div>
@@ -1549,14 +1787,14 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Vibrant social content and brand strategy for a beloved El Paso restaurant institution with a loyal local following.</p>
         </div>
         <div class="portfolio-card reveal">
-          <img src="/Photos/Pulmonary Health Center Photo Website.png" alt="Pulmonary Health Center Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={pulmonaryHealthCenterPhoto} alt="Pulmonary Health Center Website Preview" class="portfolio-preview preview-pulmonary" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
-              <img src="https://logo.clearbit.com/topdoctors.mx" alt="Pulmonary Health Center" onerror="this.style.display='none';this.parentElement.textContent='PH'" />
+              <Image src={pulmonaryHealthLogo} alt="Pulmonary Health Center" width={44} height={44} loading="lazy" />
             </div>
             <div class="portfolio-tags">
               <span class="portfolio-tag">Social Media</span>
-              <span class="portfolio-tag">Content</span>
+              <span class="portfolio-tag tag-content">Content</span>
             </div>
           </div>
           <div class="portfolio-region">🇺🇸 🇲🇽 USA · Mexico</div>
@@ -1565,13 +1803,13 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Cross-border healthcare marketing driving patient awareness and building lasting trust across two markets.</p>
         </div>
         <div class="portfolio-card reveal">
-          <img src="/Photos/RV Park photo website.jpg" alt="EP Roadrunner RV Park Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={rvParkPhoto} alt="EP Roadrunner RV Park Website Preview" class="portfolio-preview preview-rvpark" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
-              <img src="https://logo.clearbit.com/elpasoroadrunnerrv.com" alt="EP Roadrunner RV" onerror="this.style.display='none';this.parentElement.textContent='RR'" />
+              <Image src={roadrunnerRvLogo} alt="EP Roadrunner RV" width={44} height={44} loading="lazy" />
             </div>
             <div class="portfolio-tags">
-              <span class="portfolio-tag">Web Design</span>
+              <span class="portfolio-tag tag-design">Web Design</span>
               <span class="portfolio-tag">Social Media</span>
             </div>
           </div>
@@ -1581,11 +1819,11 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Online brand building for a premier RV resort destination attracting travelers from across North America.</p>
         </div>
         <div class="portfolio-card reveal">
-          <img src="/Photos/Future strike photo website (1).jpg" alt="Future Strike Bowling Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={futureStrikePhoto} alt="Future Strike Bowling Website Preview" class="portfolio-preview preview-futurestrike" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo" style="background:rgba(108,99,255,0.1);border-color:rgba(108,99,255,0.2);color:var(--accent);">FS</div>
             <div class="portfolio-tags">
-              <span class="portfolio-tag">Branding</span>
+              <span class="portfolio-tag tag-branding">Branding</span>
               <span class="portfolio-tag">Social Media</span>
             </div>
           </div>
@@ -1595,14 +1833,14 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">Retail brand launch and digital strategy for an El Paso bowling pro shop from the ground up.</p>
         </div>
         <div class="portfolio-card reveal">
-          <img src="/Photos/Top RV Parts Photo Website.jpg" alt="Top RV Parts Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={topRvPartsPhoto} alt="Top RV Parts Website Preview" class="portfolio-preview preview-toprv" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
-              <img src="https://logo.clearbit.com/toprvparts.com" alt="Top RV Parts" onerror="this.style.display='none';this.parentElement.textContent='TR'" />
+              <Image src={topRvPartsLogo} alt="Top RV Parts" width={44} height={44} loading="lazy" />
             </div>
             <div class="portfolio-tags">
-              <span class="portfolio-tag">Web Dev</span>
-              <span class="portfolio-tag">E-commerce</span>
+              <span class="portfolio-tag tag-design">Web Dev</span>
+              <span class="portfolio-tag tag-ecommerce">E-commerce</span>
             </div>
           </div>
           <div class="portfolio-region">🇺🇸 🇨🇦 USA · Canada</div>
@@ -1611,14 +1849,14 @@ const structuredData = JSON.stringify({
           <p class="portfolio-desc">E-commerce growth strategy and online store development for a national RV parts retailer serving North America.</p>
         </div>
         <div class="portfolio-card reveal">
-          <img src="/Photos/paws in heaven website photo.jpg" alt="Paws in Heaven Website Preview" class="portfolio-preview" loading="lazy" />
+          <Image src={pawsInHeavenPhoto} alt="Paws in Heaven Website Preview" class="portfolio-preview preview-paws" loading="lazy" />
           <div class="portfolio-card-top">
             <div class="portfolio-logo">
-              <img src="https://logo.clearbit.com/pawinheaven.com" alt="Paws in Heaven" onerror="this.style.display='none';this.parentElement.textContent='PH'" />
+              <Image src={pawsInHeavenLogo} alt="Paws in Heaven" width={44} height={44} loading="lazy" />
             </div>
             <div class="portfolio-tags">
               <span class="portfolio-tag">Social Media</span>
-              <span class="portfolio-tag">Content</span>
+              <span class="portfolio-tag tag-content">Content</span>
             </div>
           </div>
           <div class="portfolio-region">🇺🇸 🇲🇽 USA · Mexico</div>
@@ -1739,7 +1977,7 @@ const structuredData = JSON.stringify({
       <h2 class="section-title reveal">Two Minds, <em>One Mission</em></h2>
       <p class="section-sub reveal">A tight-knit team with the combined skills of a full-service agency — and the personal attention of a dedicated partner.</p>
       <div class="team-showcase reveal">
-        <img src="/Photos/Team Photo website (1).png" alt="El Paso Advertising Solutions team" loading="lazy" />
+        <Image src={teamPhoto} alt="El Paso Advertising Solutions team" loading="lazy" />
       </div>
       <div class="team-grid">
         <div class="team-card reveal-left">
@@ -2049,24 +2287,44 @@ const structuredData = JSON.stringify({
     // ===========================
     const navToggle = document.getElementById('nav-toggle');
     const navMobile = document.getElementById('nav-mobile');
+    const navMobileOverlay = document.getElementById('nav-mobile-overlay');
+
+    const closeNav = () => {
+      navToggle.classList.remove('active');
+      navMobile.classList.remove('open');
+      navMobileOverlay.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navMobile.setAttribute('aria-hidden', 'true');
+      navMobileOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    const openNav = () => {
+      navToggle.classList.add('active');
+      navMobile.classList.add('open');
+      navMobileOverlay.classList.add('active');
+      navToggle.setAttribute('aria-expanded', 'true');
+      navMobile.setAttribute('aria-hidden', 'false');
+      navMobileOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
 
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navMobile.classList.toggle('open');
       const isOpen = navMobile.classList.contains('open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-      navMobile.setAttribute('aria-hidden', String(!isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      isOpen ? closeNav() : openNav();
     });
 
+    navMobileOverlay.addEventListener('click', closeNav);
+
     document.querySelectorAll('.mobile-link').forEach(l => {
-      l.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMobile.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navMobile.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      });
+      l.addEventListener('click', closeNav);
+    });
+
+    // Close nav on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMobile.classList.contains('open')) {
+        closeNav();
+      }
     });
 
     // Analytics-ready helper. No-op until GA/GTM is configured.
@@ -2113,16 +2371,34 @@ const structuredData = JSON.stringify({
         opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out', delay: 0.5,
       });
 
-      // Counters
-      setTimeout(() => {
-        document.querySelectorAll('.count').forEach(el => {
-          const target = parseInt(el.dataset.target);
-          gsap.to({ val: 0 }, {
-            val: target, duration: 1.5, ease: 'power2.out', delay: 0.8,
-            onUpdate: function () { el.textContent = Math.round(this.targets()[0].val); }
-          });
+      // Counters — use Intersection Observer to start animation when scrolled into view
+      const statsSection = document.getElementById('hero-stats');
+      let countersAnimated = false;
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !countersAnimated) {
+            countersAnimated = true;
+            document.querySelectorAll('.count').forEach((el, index) => {
+              const target = parseInt(el.dataset.target);
+              gsap.to({ val: 0 }, {
+                val: target,
+                duration: 2.5,
+                ease: 'cubic.inOut',
+                delay: index * 0.1,
+                onUpdate: function () {
+                  el.textContent = Math.round(this.targets()[0].val);
+                }
+              });
+            });
+            counterObserver.unobserve(entry.target);
+          }
         });
-      }, 600);
+      }, { threshold: 0.3 });
+
+      if (statsSection) {
+        counterObserver.observe(statsSection);
+      }
 
       // Generic reveals
       gsap.utils.toArray('.reveal').forEach((el, i) => {
@@ -2279,7 +2555,7 @@ const structuredData = JSON.stringify({
       try {
         const controller = new AbortController();
         timeoutId = setTimeout(() => controller.abort(), 10000);
-        const response = await fetch('https://formspree.io/f/xreokzly', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           signal: controller.signal,
           headers: {
@@ -2287,6 +2563,7 @@ const structuredData = JSON.stringify({
             'Accept': 'application/json',
           },
           body: JSON.stringify({
+            access_key: 'f0a698f3-4325-4261-b60b-1d94dfb8ab1f',
             name:    document.getElementById('f-name').value,
             email:   document.getElementById('f-email').value,
             phone:   document.getElementById('f-phone').value,
@@ -2295,7 +2572,7 @@ const structuredData = JSON.stringify({
             message: document.getElementById('f-message').value,
           }),
         });
-        if (!response.ok) throw new Error('Formspree error');
+        if (!response.ok) throw new Error('Form submission error');
         trackEvent('form_submit_success', { source: 'contact_form' });
         form?.reset();
 
