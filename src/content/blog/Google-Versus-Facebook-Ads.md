@@ -1,6 +1,6 @@
 ---
 title: "Google Ads vs Facebook Ads 2026: Where El Paso Businesses Should Spend"
-description: "Confused about Google Ads vs Facebook Ads in 2026? Carlos breaks down where El Paso businesses get the best ROI, with real local examples and budget recommendations."
+description: "Confused about Google Ads vs Facebook Ads in 2026? We break down where El Paso businesses get the best ROI, with real local examples and budget recommendations."
 slug: "google-ads-vs-facebook-ads-2026-el-paso"
 pubDate: 2026-04-23
 author: "EPAS Team"
