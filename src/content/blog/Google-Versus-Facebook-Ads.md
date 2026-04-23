@@ -5,7 +5,7 @@ slug: "google-ads-vs-facebook-ads-2026-el-paso"
 pubDate: 2026-04-23
 author: "EPAS Team"
 authorTitle: "Founder & CEO"
-featuredImage: "/images/blog/google-vs-facebook-ads-2026.jpg"
+featuredImage: "/Blog/google-vs-facebook-ads-2026.jpg"
 featuredImageAlt: "Description of the image"
 tags: ["social-media", "tips"]
 language: "en"
