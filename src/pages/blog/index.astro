@@ -1,0 +1,318 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Collect all unique tags across all posts
+const allTags = [...new Set(sortedPosts.flatMap(p => p.data.tags))].sort();
+
+const pageTitle = 'Blog — El Paso Advertising Solutions';
+const pageDescription = 'Marketing insights, case studies, and tips from the EP Advertising Solutions team. In English and Español.';
+---
+
+<BlogPostLayout title={pageTitle} description={pageDescription}>
+  <div class="blog-listing">
+
+    <!-- Page Header -->
+    <header class="listing-header">
+      <div class="listing-header-inner">
+        <div class="header-eyebrow">Our Blog</div>
+        <h1 class="header-title">Marketing <span class="accent">Insights</span></h1>
+        <p class="header-subtitle">
+          Tips, strategies, and stories from the team helping businesses across the Americas grow online.
+          <span class="header-subtitle-es">Consejos, estrategias e historias de nuestro equipo.</span>
+        </p>
+      </div>
+    </header>
+
+    <div class="listing-body">
+
+      <!-- Filter Controls -->
+      <div class="filter-bar">
+        <!-- Language Tabs -->
+        <div class="lang-tabs" role="tablist" aria-label="Filter by language">
+          <button class="lang-tab active" data-lang="all" role="tab" aria-selected="true">All</button>
+          <button class="lang-tab" data-lang="en" role="tab" aria-selected="false">English</button>
+          <button class="lang-tab" data-lang="es" role="tab" aria-selected="false">Español</button>
+        </div>
+
+        <!-- Tag Chips -->
+        {allTags.length > 0 && (
+          <div class="tag-filter" aria-label="Filter by tag">
+            <button class="tag-filter-chip active" data-tag="all">All Topics</button>
+            {allTags.map(tag => (
+              <button class="tag-filter-chip" data-tag={tag}>{tag}</button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Post Grid -->
+      <div class="post-grid" id="post-grid">
+        {sortedPosts.map(post => (
+          <BlogCard post={post} />
+        ))}
+      </div>
+
+      <!-- Empty State (shown via JS when filters match nothing) -->
+      <div class="empty-state" id="empty-state" aria-live="polite" hidden>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <p>No posts match the selected filters.</p>
+        <button id="reset-filters">Clear filters</button>
+      </div>
+
+    </div>
+  </div>
+</BlogPostLayout>
+
+<style>
+  /* ── Layout tokens ── */
+  .blog-listing {
+    --page-pad: 1.5rem;
+    --card-min: 300px;
+  }
+
+  /* ── Header ── */
+  .listing-header {
+    background: linear-gradient(180deg, #0e0e22 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem var(--page-pad) 4rem;
+    text-align: center;
+  }
+
+  .listing-header-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .header-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .header-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .accent { color: var(--accent); }
+
+  .header-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .header-subtitle-es {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+    margin-top: 0.35rem;
+  }
+
+  /* ── Body ── */
+  .listing-body {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 3rem var(--page-pad) 5rem;
+  }
+
+  /* ── Filter bar ── */
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Language tabs */
+  .lang-tabs {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .lang-tab {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-tab:hover {
+    color: var(--text);
+    border-color: rgba(108, 99, 255, 0.4);
+    background: rgba(108, 99, 255, 0.06);
+  }
+
+  .lang-tab.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* Tag chips */
+  .tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag-filter-chip {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: lowercase;
+  }
+
+  .tag-filter-chip:hover {
+    color: var(--accent);
+    border-color: rgba(108, 99, 255, 0.35);
+    background: rgba(108, 99, 255, 0.06);
+  }
+
+  .tag-filter-chip.active {
+    background: rgba(108, 99, 255, 0.15);
+    color: var(--accent);
+    border-color: rgba(108, 99, 255, 0.4);
+  }
+
+  /* ── Post grid ── */
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-min), 1fr));
+    gap: 1.75rem;
+  }
+
+  /* Hide cards that don't match filters */
+  .post-grid :global(.blog-card.hidden) {
+    display: none;
+  }
+
+  /* ── Empty state ── */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .empty-state svg { opacity: 0.4; }
+
+  .empty-state p { font-size: 1rem; }
+
+  .empty-state #reset-filters {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(108, 99, 255, 0.1);
+    border: 1px solid rgba(108, 99, 255, 0.25);
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .empty-state #reset-filters:hover {
+    background: rgba(108, 99, 255, 0.2);
+  }
+
+  @media (max-width: 600px) {
+    .listing-header { padding: 3.5rem var(--page-pad) 2.5rem; }
+    .listing-body { padding: 2rem var(--page-pad) 3rem; }
+  }
+</style>
+
+<script>
+  const langTabs  = document.querySelectorAll<HTMLButtonElement>('.lang-tab');
+  const tagChips  = document.querySelectorAll<HTMLButtonElement>('.tag-filter-chip');
+  const cards     = document.querySelectorAll<HTMLElement>('.blog-card');
+  const emptyState = document.getElementById('empty-state') as HTMLElement;
+  const resetBtn   = document.getElementById('reset-filters') as HTMLButtonElement;
+
+  let activeLang = 'all';
+  let activeTag  = 'all';
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const lang = card.dataset.lang ?? 'en';
+      const cardTags = Array.from(card.querySelectorAll<HTMLElement>('.tag-chip'))
+        .map(el => el.textContent?.trim() ?? '');
+
+      const langMatch = activeLang === 'all' || lang === activeLang;
+      const tagMatch  = activeTag  === 'all' || cardTags.includes(activeTag);
+
+      if (langMatch && tagMatch) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    emptyState.hidden = visible > 0;
+  }
+
+  langTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activeLang = tab.dataset.lang ?? 'all';
+      langTabs.forEach(t => {
+        t.classList.toggle('active', t === tab);
+        t.setAttribute('aria-selected', String(t === tab));
+      });
+      applyFilters();
+    });
+  });
+
+  tagChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      activeTag = chip.dataset.tag ?? 'all';
+      tagChips.forEach(c => c.classList.toggle('active', c === chip));
+      applyFilters();
+    });
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    activeLang = 'all';
+    activeTag  = 'all';
+    langTabs.forEach(t => t.classList.toggle('active', t.dataset.lang === 'all'));
+    tagChips.forEach(c => c.classList.toggle('active', c.dataset.tag === 'all'));
+    applyFilters();
+  });
+</script>

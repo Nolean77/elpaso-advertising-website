@@ -1,0 +1,296 @@
+---
+import Nav from '../components/Nav.astro';
+import { CONTACT, LINKS } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-image.png',
+  canonicalUrl = Astro.url.href,
+} = Astro.props;
+
+const siteUrl = 'https://elpasoadvertisingsolutions.com';
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="El Paso Advertising Solutions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullOgImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236c63ff'/><text y='.9em' font-size='60' font-family='sans-serif' font-weight='900' fill='white' x='12'>EP</text></svg>" />
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TQVQTG67"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'GT-TQVQTG67');
+    gtag('config', 'G-HH0WK3FSBJ');
+  </script>
+
+  <style>
+    :root {
+      --bg:          #080810;
+      --bg-2:        #0d0d1a;
+      --bg-3:        #111124;
+      --accent:      #6c63ff;
+      --accent-2:    #ff6584;
+      --accent-3:    #43e97b;
+      --text:        #f0f0ff;
+      --text-muted:  #8888aa;
+      --border:      rgba(108, 99, 255, 0.15);
+      --glow:        rgba(108, 99, 255, 0.3);
+      --font-body:   'Inter', sans-serif;
+      --font-display:'Plus Jakarta Sans', sans-serif;
+      --max-w:       1200px;
+      --radius:      16px;
+      --nav-height:  72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Footer ── */
+    .blog-footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
+      margin-top: 6rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-logo-mark {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(108, 99, 255, 0.12);
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 800;
+      color: var(--accent);
+      font-family: var(--font-display);
+      flex-shrink: 0;
+    }
+
+    .footer-logo-ep { color: var(--accent); }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--text); }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ── WhatsApp float ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 500;
+      width: 52px; height: 52px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+    }
+
+    .whatsapp-float svg {
+      width: 28px; height: 28px;
+      fill: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <Nav />
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="blog-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <div class="footer-logo-mark">EP</div>
+            <span><span class="footer-logo-ep">EP</span> Advertising Solutions</span>
+          </a>
+          <p>A bilingual digital marketing agency helping businesses across the Americas grow their online presence.</p>
+          <div style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;">🇺🇸 🇲🇽 🇨🇦 🇵🇪 🇧🇴 &nbsp;English · Español</div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#portfolio">Portfolio</a></li>
+            <li><a href="/#team">Team</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/#services">Social Media</a></li>
+            <li><a href="/#services">Web Development</a></li>
+            <li><a href="/#services">Content Creation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href={`tel:+${CONTACT.whatsappNumber}`}>{CONTACT.whatsappDisplay}</a></li>
+            <li><a href={LINKS.mailto}>{CONTACT.email}</a></li>
+            <li><span style="color:var(--text-muted)">El Paso, TX · Americas</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 El Paso Advertising Solutions. All rights reserved.</p>
+        <p>Designed &amp; built with ❤️ in El Paso, TX 🤘</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</body>
+</html>
