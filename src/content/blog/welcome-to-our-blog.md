@@ -4,7 +4,7 @@ description: "We're launching our blog to share marketing insights, tips, and up
 pubDate: 2026-04-23
 author: "Carlos"
 authorTitle: "Founder & CEO"
-featuredImage: "/blog/welcome-post-cover.jpg"
+featuredImage: "/Blog/welcome-post-cover.jpg"
 featuredImageAlt: "El Paso Advertising Solutions team working on a digital marketing campaign"
 tags: ["marketing", "announcement"]
 language: "en"

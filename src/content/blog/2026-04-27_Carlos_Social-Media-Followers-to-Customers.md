@@ -4,7 +4,7 @@ description: "Struggling to turn social media followers into customers? Carlos b
 pubDate: 2026-04-27
 author: "Carlos Terrazas"
 authorTitle: "Digital Marketing Strategist"
-featuredImage: "/images/blog/social-media-followers-customers-2026.jpg"
+featuredImage: "/Blog/social-media-followers-customers-2026.jpg"
 featuredImageAlt: "El Paso business owner reviewing social media analytics on a phone"
 tags: ["social media", "el paso business", "customer conversion", "instagram marketing", "facebook marketing"]
 language: "en"

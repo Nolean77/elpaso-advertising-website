@@ -4,7 +4,7 @@ description: "Lanzamos nuestro blog para compartir estrategias de marketing, con
 pubDate: 2026-04-23
 author: "Carlos"
 authorTitle: "Fundador & CEO"
-featuredImage: "/blog/welcome-post-cover.jpg"
+featuredImage: "/Blog/welcome-post-cover.jpg"
 featuredImageAlt: "El equipo de El Paso Advertising Solutions trabajando en una campaña de marketing digital"
 tags: ["marketing", "anuncio"]
 language: "es"
