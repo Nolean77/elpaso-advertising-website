@@ -1,16 +1,14 @@
 ---
 title: "How to Turn Your El Paso Business's Social Media Followers Into Paying Customers"
-date: 2026-04-27
-author: Carlos Terrazas
-category: Social Media Marketing
+description: "Struggling to turn social media followers into customers? Carlos breaks down 5 proven strategies for El Paso businesses to convert engagement into real sales."
+pubDate: 2026-04-27
+author: "Carlos Terrazas"
+authorTitle: "Digital Marketing Strategist"
+featuredImage: "/images/blog/social-media-followers-customers-2026.jpg"
+featuredImageAlt: "El Paso business owner reviewing social media analytics on a phone"
 tags: ["social media", "el paso business", "customer conversion", "instagram marketing", "facebook marketing"]
-meta_description: "Struggling to turn social media followers into customers? Carlos breaks down 5 proven strategies for El Paso businesses to convert engagement into real sales."
-slug: "social-media-followers-to-customers-el-paso"
-featured_image: "/images/blog/social-media-followers-customers-2026.jpg"
-internal_links:
-  - "/services/social-media-management"
-  - "/case-studies/local-restaurant-growth"
-  - "/blog/content-strategy-2026"
+language: "en"
+draft: false
 ---
 
 # How to Turn Your El Paso Business's Social Media Followers Into Paying Customers
@@ -100,7 +98,7 @@ Or if you're ready to move:
 
 ---
 
-*Carlos Terrazas manages digital advertising and social media for El Paso Advertising Solutions. He's helped 40+ borderplex businesses turn scrollers into customers through strategic paid and organic social media. Reach him at carlos@epasolutions.com.*
+*Carlos Terrazas manages digital advertising and social media for El Paso Advertising Solutions. He's helped 40+ borderplex businesses turn scrollers into customers through strategic paid and organic social media. Reach him at carlos@elpasoadvertisingsolutions.com.*
 
 **Related Reading:**
 - [Content Strategy 2026: What El Paso Businesses Should Post](/blog/content-strategy-2026)
