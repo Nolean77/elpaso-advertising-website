@@ -6,7 +6,7 @@ pubDate: 2026-04-29
 author: "Nolean Francisco"
 authorTitle: "Partner & Co-Founder"
 featuredImage: "/Blog/ai-search-el-paso-2026.jpg"
-featuredImageAlt: "El Paso business owner viewing AI-generated search results on a laptop"
+featuredImageAlt: "/Blog/store-front-ai-blog-image.jpg"
 tags: ["ai search", "seo", "el paso business", "google ai overviews", "chatgpt"]
 language: "en"
 draft: false
