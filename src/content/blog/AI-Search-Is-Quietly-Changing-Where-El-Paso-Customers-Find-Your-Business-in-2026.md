@@ -5,8 +5,8 @@ slug: "ai-search-el-paso-businesses-2026"
 pubDate: 2026-04-29
 author: "Nolean Francisco"
 authorTitle: "Partner & Co-Founder"
-featuredImage: "/Blog/ai-search-el-paso-2026.jpg"
-featuredImageAlt: "/Blog/store-front-ai-blog-image.jpg"
+featuredImage: "/Blog/store-front-ai-blog-image.jpg"
+featuredImageAlt: "El Paso storefront representing local businesses adapting to AI search in 2026"
 tags: ["ai search", "seo", "el paso business", "google ai overviews", "chatgpt"]
 language: "en"
 draft: false
