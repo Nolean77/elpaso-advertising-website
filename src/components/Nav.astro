@@ -36,7 +36,8 @@ const navLinks = [
     </ul>
 
     <!-- Login Button -->
-    <a href="https://portal.elpasoadvertisingsolutions.com" class="nav-login">Login</a>
+    <!-- Hidden Oct 2026: client portal offline (Supabase project gone). Restore when the portal is back. -->
+    <!-- <a href="https://portal.elpasoadvertisingsolutions.com" class="nav-login">Login</a> -->
 
     <!-- CTA -->
     <a href="#contact" class="nav-cta">Free Consultation</a>
@@ -63,9 +64,11 @@ const navLinks = [
           <a href={link.href} class="mobile-link">{link.name}</a>
         </li>
       ))}
+      <!-- Hidden Oct 2026 (portal offline):
       <li>
         <a href="https://portal.elpasoadvertisingsolutions.com" class="mobile-link">Login</a>
       </li>
+      -->
       <li>
         <a href="/#contact" class="mobile-cta">Get a Free Consultation →</a>
       </li>
