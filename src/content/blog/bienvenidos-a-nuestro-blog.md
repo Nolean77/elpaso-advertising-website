@@ -27,7 +27,7 @@ Esa posición no es solo geografía. Es nuestra **mayor ventaja competitiva**.
 
 Entendemos los matices del marketing en inglés *y* en español, para consumidores estadounidenses *y* latinoamericanos. Sabemos qué resuena en la región del borderplex y qué no funciona. Hemos gestionado campañas para clientes en **EE.UU., México, Canadá, Perú y Bolivia** — y apenas estamos comenzando.
 
-Nuestro equipo incluye estrategas, diseñadores, creadores de contenido y especialistas en publicidad pagada que, en conjunto, han trabajado con más de 40 negocios en diferentes industrias: desde restaurantes y tiendas hasta proveedores de salud y marcas de e-commerce.
+Somos un equipo bilingüe de dos personas: Nolean crea sitios web y herramientas con inteligencia artificial, y Carlos dirige las redes sociales, el diseño y la relación con los clientes. Juntos trabajamos con negocios en Estados Unidos y México: desde restaurantes y tiendas hasta proveedores de salud y marcas de e-commerce.
 
 ---
 

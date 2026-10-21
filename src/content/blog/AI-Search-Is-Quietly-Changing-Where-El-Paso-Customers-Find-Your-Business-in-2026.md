@@ -11,9 +11,9 @@ tags: ["ai search", "seo", "el paso business", "google ai overviews", "chatgpt"]
 language: "en"
 draft: false
 internal_links:
-  - "/services/seo"
-  - "/blog/google-ads-vs-facebook-ads-2026-el-paso"
-  - "/blog/social-media-followers-to-customers"
+  - "/#services"
+  - "/blog/Google-Versus-Facebook-Ads"
+  - "/blog/2026-04-27_Carlos_Social-Media-Followers-to-Customers"
 ---
 
 # AI Search Is Quietly Changing Where El Paso Customers Find Your Business in 2026
@@ -150,12 +150,12 @@ We run free AI visibility audits — we'll show you what ChatGPT, Perplexity, an
 
 Or if you're ready to move:
 
-**[Get a Custom AI Search Strategy →](/services/seo)**
+**[Get a Custom AI Search Strategy →](/#services)**
 
 ---
 
 *Nolean Francisco is Partner and Co-Founder at El Paso Advertising Solutions. He works on the strategy side — helping borderplex businesses stay visible as the way customers search keeps changing. Reach the team at [Carlos@elpasoadvertisingsolutions.com](mailto:Carlos@elpasoadvertisingsolutions.com).*
 
 **Related Reading:**
-- [Google Ads vs Facebook Ads 2026: Where El Paso Businesses Should Spend](/blog/google-ads-vs-facebook-ads-2026-el-paso)
-- [How to Turn Your El Paso Business's Social Media Followers Into Paying Customers](/blog/social-media-followers-to-customers)
+- [Google Ads vs Facebook Ads 2026: Where El Paso Businesses Should Spend](/blog/Google-Versus-Facebook-Ads)
+- [How to Turn Your El Paso Business's Social Media Followers Into Paying Customers](/blog/2026-04-27_Carlos_Social-Media-Followers-to-Customers)

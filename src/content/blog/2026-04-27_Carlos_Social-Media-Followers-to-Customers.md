@@ -90,16 +90,16 @@ El Paso is a tight-knit community. People here buy from businesses they know, li
 
 I audit social media accounts for free — no pitch, just honest feedback on what's working and what's costing you customers.
 
-**[Schedule Your Free Social Media Audit →](/contact)**
+**[Schedule Your Free Social Media Audit →](/#contact)**
 
 Or if you're ready to move:
 
-**[Get a Custom Social Media Strategy →](/services/social-media-management)**
+**[Get a Custom Social Media Strategy →](/#services)**
 
 ---
 
-*Carlos Terrazas manages digital advertising and social media for El Paso Advertising Solutions. He's helped 40+ borderplex businesses turn scrollers into customers through strategic paid and organic social media. Reach him at carlos@elpasoadvertisingsolutions.com.*
+*Carlos Terrazas manages digital advertising and social media for El Paso Advertising Solutions. He handles social media, design, and client relations for businesses across the US and Mexico. Reach him at carlos@elpasoadvertisingsolutions.com.*
 
 **Related Reading:**
-- [Content Strategy 2026: What El Paso Businesses Should Post](/blog/content-strategy-2026)
-- [Case Study: How a Local Restaurant 3X'd Instagram Engagement](/case-studies/local-restaurant-growth)
+- [Google Ads vs Facebook Ads 2026: Where El Paso Businesses Should Spend](/blog/Google-Versus-Facebook-Ads)
+- [AI Search Is Quietly Changing Where El Paso Customers Find Your Business in 2026](/blog/AI-Search-Is-Quietly-Changing-Where-El-Paso-Customers-Find-Your-Business-in-2026)

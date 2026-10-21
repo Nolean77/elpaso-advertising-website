@@ -27,7 +27,7 @@ That position isn't just geography. It's our **biggest competitive advantage**.
 
 We understand the nuances of marketing in English *and* Spanish, to American consumers *and* Latin American ones. We know what resonates in the borderplex and what falls flat. We've managed campaigns for clients in the **USA, Mexico, Canada, Peru, and Bolivia** — and we're just getting started.
 
-Our team includes strategists, designers, content creators, and paid media specialists who've collectively worked with 40+ businesses across industries — from restaurants and retailers to healthcare providers and e-commerce brands.
+We're a two-person bilingual team: Nolean builds websites and AI-powered tools, and Carlos leads social media, design, and client relations. Together we work with businesses across the US and Mexico — from restaurants and retailers to healthcare providers and e-commerce brands.
 
 ---
 

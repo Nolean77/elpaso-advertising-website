@@ -11,9 +11,8 @@ tags: ["social-media", "tips"]
 language: "en"
 draft: false
 internal_links:
-  - "/services/ppc-management"
-  - "/case-studies/local-retail-boost"
-  - "/blog/social-media-trends-2026"
+  - "/#services"
+  - "/blog/2026-04-27_Carlos_Social-Media-Followers-to-Customers"
 ---
 
 # Google Ads vs Facebook Ads 2026: Where El Paso Businesses Should Spend
@@ -175,16 +174,16 @@ In 2026, the businesses winning in El Paso aren't choosing sides — they're usi
 
 I audit ad accounts for free — no pitch, just honest feedback on where your budget's working and where it's leaking.
 
-**[Schedule Your Free Ad Audit →](/contact)**
+**[Schedule Your Free Ad Audit →](/#contact)**
 
 Or if you're ready to move:
 
-**[Get a Custom PPC Proposal →](/services/ppc-management)**
+**[Get a Custom PPC Proposal →](/#services)**
 
 ---
 
-*Carlos Francisco manages digital advertising for El Paso Advertising Solutions. He's helped 40+ borderplex businesses scale from "local secret" to "category leader" through paid search and social. Reach him at carlos@epasolutions.com.*
+*Carlos Terrazas manages social media, design, and client relations for El Paso Advertising Solutions, working with businesses across the US and Mexico. Reach him at carlos@elpasoadvertisingsolutions.com.*
 
 **Related Reading:**
-- [Social Media Trends 2026: What's Working in El Paso](/blog/social-media-trends-2026)
-- [Case Study: How a Local Retailer 3X'd Revenue with Paid Social](/case-studies/local-retail-boost)
+- [How to Turn Your El Paso Business's Social Media Followers Into Paying Customers](/blog/2026-04-27_Carlos_Social-Media-Followers-to-Customers)
+- [AI Search Is Quietly Changing Where El Paso Customers Find Your Business in 2026](/blog/AI-Search-Is-Quietly-Changing-Where-El-Paso-Customers-Find-Your-Business-in-2026)
