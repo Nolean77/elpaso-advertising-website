@@ -9,75 +9,65 @@ language: en
 draft: true
 ---
 
-If you run a small shop, the holiday season doesn't arrive with extra hours attached. Small Business Saturday is about four weeks away. That's enough time to make a useful plan, but not if you leave everything until the Friday before.
-
-You don't need a giant promotion. You need an offer that makes sense, a way to tell people about it, and a reason for first-time customers to come back.
+If you run a small shop, the holiday season doesn't arrive with extra hours attached. Small Business Saturday is four weeks out. That's enough time to do it well, as long as the first step happens this week instead of the Friday before.
 
 ## Small Business Saturday is November 28, 2026
 
-This year, Small Business Saturday falls on Saturday, November 28, two days after Thanksgiving. Both the [U.S. Small Business Administration](https://www.sba.gov/about-sba/organization/observances/small-business-saturday) and [American Express](https://www.americanexpress.com/us/merchant/shop-small.html) confirm the date.
+This year it lands on Saturday, November 28, two days after Thanksgiving. Both the [U.S. Small Business Administration](https://www.sba.gov/about-sba/organization/observances/small-business-saturday) and [American Express](https://www.americanexpress.com/us/merchant/shop-small.html) list that date. Amex started the day in 2010, and the SBA has cosponsored it since 2011.
 
-American Express founded the event in 2010, and the SBA has officially cosponsored it since 2011. The SBA says the country has more than 36.2 million independent businesses. That's a lot of shops competing for attention, and a good reason not to rely on one Saturday-morning post.
+The point of the day is to get people spending at independent businesses. The SBA counts more than 36.2 million of those nationwide, so you won't be the only one asking for attention that weekend. That's the real argument for a plan over a single post the morning of.
 
-## Four weeks, one manageable step at a time
+## Four weeks is enough if you start this week
 
-On October 28, Hello Alice published a [four-week Small Business Saturday promotion plan](https://www.helloalice.com/small-biz-library/small-business-saturday-a-4-week-promotion-plan). We're following its week-by-week structure and adding a few ideas for businesses around El Paso. We'll mark those as **our take**, not advice from Hello Alice.
+On October 28, Hello Alice published a [four-week Small Business Saturday promotion plan](https://www.helloalice.com/small-biz-library/small-business-saturday-a-4-week-promotion-plan). The weeks below follow its structure. Where we add something for El Paso businesses, we label it as our take, because that part is our reasoning, not the source's.
 
-## Week 1: Pick an offer you can afford
+## Week 1: Pick an offer you can afford, then test the math
 
-Hello Alice starts with the offer and the math behind it. Possibilities include a small gift with purchase, a bundle, a discount on selected items, or a coupon for a future visit.
+According to Hello Alice, week one is for choosing an offer and checking the numbers before you announce anything. The options it suggests include a small gift with purchase, a bundle, a discount on a few items instead of the whole store, or a coupon for a return visit.
 
-Before announcing anything, calculate what each choice costs on one sale. Then imagine more customers redeeming it than you expected. Does the offer still make sense?
+The math is the part people skip. Before you commit, work out what each option costs you on a single sale, then ask what happens if far more people take it than you planned for. If the answer makes you nervous, choose a smaller offer. A deal you resent by Saturday afternoon helps no one.
 
-If not, scale it back. A promotion that leaves you regretting every transaction isn't doing its job.
-
-**Our take:** consider a return-visit coupon. The benefit gets redeemed when someone comes back, and you've already given that customer a reason to think about your business after November 28. Just make sure the terms work for you.
+Our take: give the return-visit coupon a serious look. You only pay for it when someone comes back, and it sets up the last step of this plan before the day has even started.
 
 ## Week 2: Tell your regulars first
 
-Hello Alice recommends reaching the people who already know your shop through the channels you use now: email, texts, social posts, or a note tucked into a bag. Give regulars an early heads-up.
+Hello Alice's second week is about the people who already know you: your regulars and whatever customer list you keep. Tell them about the offer first, everywhere you already reach people. It's a small gesture, but it treats the people who keep you open like insiders, which is what they are.
 
-Don't make this harder than it needs to be. One clear message about the offer, when it happens, and why it's worth a visit can travel across those channels.
+Our take: if your customers move between English and Spanish, write the announcement in both. Not a machine translation pasted under the English, but a version that sounds like you in each language. Picture a hypothetical family bakery on the Northeast side whose Saturday crowd is half English-first and half Spanish-first. A post in one language only speaks to half that room. If you want more on how a follower becomes a paying customer, we covered it in [this earlier post](/blog/2026-04-27_Carlos_Social-Media-Followers-to-Customers/).
 
-**Our take:** if your customers use English and Spanish, make a version that sounds natural in each language. Picture a hypothetical family bakery in Northeast El Paso serving customers who prefer different languages. A single-language announcement could miss part of its audience.
+## Week 3: Use the free materials, and make sure new customers can find you
 
-For more on turning interest into actual business, see [our earlier post on followers and customers](/blog/2026-04-27_Carlos_Social-Media-Followers-to-Customers/).
+American Express keeps free Small Business Saturday materials on its [Shop Small materials page](https://www.americanexpress.com/us/merchant/shop-small/materials.html). There are social media assets you can download and post straight to your accounts, three printable 8.5 x 11 posters, and a holiday-season toolkit. One of the ready-made captions already names November 28. The SBA's page points small businesses to free materials too, including sample posters and social media resources.
 
-## Week 3: Use free materials and make yourself easy to find
+A few details from Amex's own FAQ are worth knowing before you dismiss this as "only for Amex shops":
 
-American Express provides free assets through its [Shop Small materials page](https://www.americanexpress.com/us/merchant/shop-small/materials.html), including social media assets you can download and post directly, three printable 8.5-by-11-inch posters, and a holiday-season toolkit. One ready-made caption mentions November 28. The SBA also links to free posters and social media resources.
+- You don't need to be a Card Member or accept American Express to get the free downloadable materials.
+- The materials cost nothing; printing is the only expense, and it's yours.
+- Online-only businesses can get the digital materials.
+- You can also order a free Small Business Saturday Marketing Kit.
 
-A few points from Amex's FAQ are useful:
+There's one rule to respect. Amex says its assets aren't to be altered, except as its terms allow, or used outside their intended purpose. So use them as they come. Anything you want to add, like your offer, your hours or your own voice, goes in your own posts next to them.
 
-- You don't need to be an American Express Card Member or accept Amex cards to download the free materials.
-- Downloadable materials are free; business owners cover any printing costs.
-- Online-only businesses can use the digital resources.
-- Amex also offers a free Small Business Saturday Marketing Kit to order.
+The Shop Small Map is a separate matter. To be Shop Small eligible in 2026, Amex says a business must meet criteria that include being located in the U.S. or its territories, having up to $7 million in full year American Express charge volume at top of chain, and having up to 25 locations. Even for businesses that qualify, Amex says it can't guarantee a business will appear on its maps. Read the full rules on the Amex page before you plan around it.
 
-Amex says its assets shouldn't be altered except where its terms allow. Use the materials as intended, and put your own offer, shop details, and voice in separate posts.
+Then make sure people can actually find you. According to Hello Alice, week three is when to confirm your Google Business Profile hours, photos, and holiday hours and to cross-promote with a neighboring business.
 
-**Shop Small eligibility is different from access to free materials.** To be Shop Small eligible in 2026, Amex says a business must meet criteria that include being in the United States or its territories, having up to $7 million in full-year Amex charge volume and no more than 25 locations, with those limits measured at the top of the chain. Other rules apply, and even eligible businesses aren't guaranteed to appear on American Express Maps. Check the [full Amex information](https://www.americanexpress.com/us/merchant/shop-small.html) before assuming a map listing.
+Our take: pair up with someone close by who sells something different from you. As a hypothetical, a coffee shop and a gift shop on the same block could each mention the other in their own posts and point customers next door on the day. Neither one gives anything up, and both look more like part of a neighborhood than a lone storefront.
 
-Hello Alice also recommends checking your Google Business Profile's **hours, photos, and holiday hours**, and cross-promoting with a nearby business.
+## Week 4 and the day itself
 
-**Our take:** a hypothetical coffee shop and gift shop on the same block could share each other's announcements and point customers next door. It gives shoppers another reason to explore the neighborhood.
+Hello Alice's final week is logistics: stock what your offer depends on, line up staff, get your signage ready, and plan to take photos, with permission from anyone in them. On the day itself, it suggests asking customers how they heard about you.
 
-## Week 4: Prepare for the actual Saturday
+That last question is free research. Keep a sheet by the register and make a tally mark for each answer. By closing time you'll have a rough picture of which announcements people actually noticed, and next year's plan can start from that instead of guesses.
 
-Hello Alice's final week is practical: confirm stock, staffing, checkout, and signage. Make the offer easy to spot. Take photos as you go, with permission when customers appear in them.
+Our take on the photos: focus on people and place more than price. A counter full of neighbors or a shelf you're proud of says more about your shop than another graphic with a percentage on it.
 
-During the event, ask customers how they heard about you. A tally sheet at the register is enough to capture the answers. By closing, you'll have a better sense of which messages reached people.
+## The week after: turn first-timers into regulars
 
-**Our take:** photograph the shop as a place, not just a price tag. A busy counter or a display you're proud of gives your next post something real to show.
+According to Hello Alice, the plan closes with a thank-you and a reason to come back. This is the step most likely to get dropped, because by Monday everyone is tired.
 
-## The week after: Give people a reason to return
+Our take: send the thank-you through the same channels you used to announce the offer, in both languages if you posted in both. Then make the reason to return specific. If you handed out return-visit coupons in week one, now is the time to remind people they have one and when it runs out. If you didn't, a simple "come see us before the holidays" with something concrete attached is better than a general thanks.
 
-Hello Alice closes with a thank-you and a reason to come back. Don't skip it just because the busiest day is over.
+If you'd like a hand planning these posts, [here's what we do](/#services).
 
-**Our take:** thank customers through the same channels you used for the promotion, in both languages if that is how you reached them. If you offered return-visit coupons, remind people what they received and when they expire. If you didn't, give them a specific reason to stop by again before the holidays.
-
-The goal isn't to create one crowded Saturday and disappear from people's feeds. It's to make that first visit the beginning of another.
-
-If you'd like help planning the posts, [here's what EPAS does](/#services).
-
-<!-- App: ChatGPT (Ollie — Workspace) · Model: not shown · Thinking High · Chat: https://chatgpt.com/g/g-p-6ac7b7a72ccc8191bee2a9101e3dde07-ollie-workspace/c/6ae3f8bc-be38-83e8-b84b-9ca3c894954f · Reviewer: Atlas (step 4) · Proposed slug (filename): small-business-saturday-2026-four-week-plan -->
+<!-- Patch-only redo by Ollie from Clara's draft per Atlas; source fixes from ChatGPT chat 6ae3f8bc + live checks · App: ChatGPT (Ollie — Workspace) · Model: not shown · Thinking High · Chat: https://chatgpt.com/g/g-p-6ac7b7a72ccc8191bee2a9101e3dde07-ollie-workspace/c/6ae3f8bc-be38-83e8-b84b-9ca3c894954f · Reviewer: Atlas (step 4) · Proposed slug (filename): small-business-saturday-2026-four-week-plan -->
