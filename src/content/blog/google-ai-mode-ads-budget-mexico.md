@@ -7,6 +7,8 @@ authorTitle: Web Developer & AI Specialist
 tags: ["Google Ads", "AI Mode", "Paid advertising", "Ad budget", "Performance Max", "Mexico", "Borderplex"]
 language: en
 draft: true
+featuredImage: "/Blog/google-ai-mode-ads-budget-mexico.jpg"
+featuredImageAlt: "Dusk illustration of desert mountains over city lights, with a glowing chat panel showing a sponsored shop card beside a budget gauge and a stack of coins."
 ---
 
 If you run Google Ads in the U.S., your campaigns may already be eligible for a placement you never chose. You didn't build a new campaign or set a new budget for it. Our take is that this matters more to your account than the list of new countries in Google's latest announcement.
