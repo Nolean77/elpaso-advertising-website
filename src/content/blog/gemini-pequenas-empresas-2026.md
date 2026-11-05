@@ -6,7 +6,7 @@ author: Nolean Francisco
 authorTitle: Web Developer & AI Specialist
 tags: ["Gemini", "Inteligencia artificial", "Pequeñas empresas", "Perfil de Negocio de Google", "Google Ads", "Borderplex"]
 language: es
-draft: true
+draft: false
 ---
 
 Piensa en un negocio entre Juárez y El Paso que atiende pedidos, revisa recibos y publica en dos idiomas. No necesita más aplicaciones. Necesita menos trabajo.
