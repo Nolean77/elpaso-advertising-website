@@ -6,7 +6,7 @@ author: Nolean Francisco
 authorTitle: Web Developer & AI Specialist
 tags: ["Google Ads", "AI Mode", "Paid advertising", "Ad budget", "Performance Max", "Mexico", "Borderplex"]
 language: en
-draft: true
+draft: false
 featuredImage: "/Blog/google-ai-mode-ads-budget-mexico.jpg"
 featuredImageAlt: "Dusk illustration of desert mountains over city lights, with a glowing chat panel showing a sponsored shop card beside a budget gauge and a stack of coins."
 ---
