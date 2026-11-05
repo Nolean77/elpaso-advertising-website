@@ -6,7 +6,7 @@ author: Carlos Terrazas
 authorTitle: Marketing Director
 tags: ["Small Business Saturday", "Shop Small", "Local marketing", "Social media", "Holiday marketing", "El Paso"]
 language: en
-draft: true
+draft: false
 ---
 
 If you run a small shop, the holiday season doesn't arrive with extra hours attached. Small Business Saturday is four weeks out. That's enough time to do it well, as long as the first step happens this week instead of the Friday before.
